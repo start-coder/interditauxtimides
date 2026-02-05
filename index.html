@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saint-Valentin 2026 : L'Expérience Interdite aux Timides</title>
+    <style>
+        /* --- CHARTE GRAPHIQUE & RESET --- */
+        :root {
+            --black: #0a0a0a;
+            --dark-grey: #1a1a1a;
+            --burgundy: #720e1e;
+            /* Rouge Bordeaux Profond */
+            --gold: #d4af37;
+            /* Doré Premium */
+            --ivory: #f5f5f0;
+            --text-color: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--black);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* --- TYPOGRAPHIE --- */
+        h1,
+        h2,
+        h3 {
+            font-family: 'Georgia', serif;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .text-gold {
+            color: var(--gold);
+        }
+
+        .text-burgundy {
+            color: var(--burgundy);
+        }
+
+        .highlight {
+            border-bottom: 2px solid var(--burgundy);
+        }
+
+        /* --- UTILS --- */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--burgundy), #901528);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 30px rgba(114, 14, 30, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(114, 14, 30, 0.6);
+            border-color: var(--gold);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+        }
+
+        .btn-outline:hover {
+            background: var(--gold);
+            color: var(--black);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%);
+            position: relative;
+            padding: 20px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1518199266791-5375a83190b7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover;
+            opacity: 0.15;
+            filter: grayscale(100%);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .badge {
+            background: var(--gold);
+            color: var(--black);
+            padding: 5px 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: var(--ivory);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #aaa;
+            margin-bottom: 40px;
+        }
+
+        /* --- PAIN/AGITATION --- */
+        .problem-section {
+            padding: 80px 0;
+            background: var(--dark-grey);
+            text-align: center;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .problem-card {
+            padding: 30px;
+            border: 1px solid #333;
+            transition: 0.3s;
+        }
+
+        .problem-card:hover {
+            border-color: var(--burgundy);
+            background: #0f0f0f;
+        }
+
+        .problem-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--burgundy);
+        }
+
+        /* --- SNEAK PEEK (BOOK CONTENT) --- */
+        .content-section {
+            padding: 100px 0;
+        }
+
+        .flex-row {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .col-half {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .book-mockup {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, #222, #000);
+            border: 1px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .book-mockup::after {
+            content: 'VISUEL E-BOOK ICI';
+            color: #444;
+            font-weight: bold;
+        }
+
+        .chapter-list li {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        .chapter-list li::before {
+            content: '✦';
+            color: var(--gold);
+            position: absolute;
+            left: 0;
+        }
+
+        /* --- SOCIAL PROOF --- */
+        .testimonials {
+            padding: 80px 0;
+            background: #0f0f0f;
+            border-top: 1px solid #222;
+            border-bottom: 1px solid #222;
+        }
+
+        .testimonial-card {
+            background: var(--black);
+            padding: 30px;
+            margin: 20px 0;
+            border-left: 3px solid var(--gold);
+        }
+
+        .stars {
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        /* --- PRICING & OFFER --- */
+        .offer-section {
+            padding: 100px 0;
+            text-align: center;
+            background: radial-gradient(circle, #1a0508 0%, #000 100%);
+        }
+
+        .price-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px solid var(--gold);
+            padding: 50px;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .price-tag {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--gold);
+            line-height: 1;
+            margin: 20px 0;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: #666;
+            font-size: 1.5rem;
+        }
+
+        .timer {
+            font-size: 1.2rem;
+            color: var(--burgundy);
+            font-weight: bold;
+            margin-top: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        /* --- FAQ --- */
+        .faq {
+            padding: 80px 0;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #333;
+            padding: 20px 0;
+            cursor: pointer;
+        }
+
+        .faq-question {
+            font-size: 1.2rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .faq-answer {
+            display: none;
+            margin-top: 15px;
+            color: #999;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid #222;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 0.7;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.7;
+            }
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .flex-row {
+                flex-direction: column-reverse;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="hero">
+        <div class="hero-content">
+            <span class="badge">Édition Spéciale Saint-Valentin 2026</span>
+            <h1>Votre couple peut tout vivre... <br><span class="text-burgundy">si vous OSEZ.</span></h1>
+            <p>Le guide interactif pour briser la routine, éveiller les sens et vivre une connexion <span
+                    class="text-gold">intense et inoubliable</span>.</p>
+            <a href="#offre" class="btn">Je télécharge l'expérience (4500 FCFA)</a>
+            <p style="font-size: 0.9rem; margin-top: 15px; opacity: 0.7;">🔒 Téléchargement immédiat & discret</p>
+        </div>
+    </section>
+
+    <section class="problem-section">
+        <div class="container">
+            <h2>La Saint-Valentin ne devrait pas être <span class="highlight">ennuyeuse</span>.</h2>
+            <p style="max-width: 600px; margin: 20px auto; color: #aaa;">Vous aimez votre partenaire, mais la routine
+                s'installe ? Les soirées se ressemblent ? Vous avez envie de plus de piment mais vous ne savez pas
+                comment l'amener sans maladresse ?</p>
+
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">🥀</div>
+                    <h3>La Routine</h3>
+                    <p>Mêmes gestes, mêmes paroles... le désir a besoin de surprise pour survivre.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">🤐</div>
+                    <h3>Le Silence</h3>
+                    <p>Ne pas oser dire ses fantasmes ou ses envies par peur d'être jugé.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">📱</div>
+                    <h3>La Distraction</h3>
+                    <p>Être ensemble dans la même pièce, mais connectés à vos téléphones plutôt qu'à l'autre.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <div class="flex-row">
+                <div class="col-half">
+                    <h2 style="margin-bottom: 20px;">Ce n'est pas un livre.<br><span class="text-gold">C'est un
+                            déclencheur.</span></h2>
+                    <p style="margin-bottom: 30px;">"E-book St Valentin 2026" a été conçu pour créer les conditions
+                        parfaites. Vous n'avez rien à inventer, juste à vous laisser guider.</p>
+
+                    <ul class="chapter-list">
+                        <li><strong>Action ou Vérité Progressif :</strong> 3 niveaux de chaleur, du rire complice à
+                            l'audace totale.</li>
+                        <li><strong>50 Jeux de Couple :</strong> Des défis sensoriels, romantiques et excitants.</li>
+                        <li><strong>Messages & Confessions :</strong> Les mots exacts pour faire monter la température
+                            par SMS.</li>
+                        <li><strong>Scénarios Guidés :</strong> Des jeux de rôles discrets pour pimenter le quotidien.
+                        </li>
+                        <li><strong>Guide Cinéma & Musique :</strong> Une sélection de films avec leur "mode d'emploi
+                            émotionnel".</li>
+                    </ul>
+                    <br>
+                    <a href="#offre" class="btn btn-outline">Voir le sommaire complet</a>
+                </div>
+                <div class="col-half">
+                    <div class="book-mockup">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background: var(--burgundy); color: white; padding: 60px 0; text-align: center;">
+        <div class="container">
+            <h3 style="font-style: italic; font-weight: normal; font-size: 1.5rem;">"Le sexe ne meurt pas par manque de
+                temps... mais par manque d'envie. Ce livre ne vous dira pas quoi ressentir. Il va créer les conditions
+                pour que quelque chose se passe."</h3>
+            <p style="margin-top: 20px; font-weight: bold;">— Extrait de l'Introduction</p>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px;">Ils ont osé l'expérience</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"On pensait juste rigoler 5 minutes, on a fini par discuter et jouer jusqu'à 3h du matin. Ça
+                        faisait longtemps qu'on ne s'était pas regardés comme ça."</p>
+                    <p style="margin-top: 15px; color: #666;">— Marc & Sophie</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Le niveau 2 des Actions ou Vérités est incroyable. C'est subtil, ça fait monter la pression sans
+                        être vulgaire. Merci pour ce guide !"</p>
+                    <p style="margin-top: 15px; color: #666;">— Amélie L.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="offre" class="offer-section">
+        <div class="container">
+            <div class="price-box">
+                <span class="badge" style="background: var(--burgundy); color: white;">Offre Limitée</span>
+                <h2>Pack Saint-Valentin 2026</h2>
+                <p>Le guide PDF complet + Les bonus interactifs</p>
+
+                <div class="old-price">10.000 FCFA</div>
+                <div class="price-tag">4500 FCFA</div>
+
+                <ul style="text-align: left; margin: 30px 0; color: #ccc;">
+                    <li>✅ Accès immédiat au PDF complet (118 pages)</li>
+                    <li>✅ Compatible Smartphone, Tablette & Ordi</li>
+                    <li>✅ Bonus : Liste de films "Cinéma du Désir"</li>
+                    <li>✅ Bonus : Idées de dates pour tous budgets</li>
+                </ul>
+
+                <a href="#" class="btn" style="width: 100%;">OUI, JE VEUX L'EXPÉRIENCE</a>
+
+                <div class="timer">⏳ Prix valable pour les 50 prochains téléchargements</div>
+
+                <div style="margin-top: 20px; font-size: 0.8rem; color: #666;">
+                    <p>Paiement 100% Sécurisé (Mobile Money / Carte)</p>
+                    <p>Garantie : Si vous ne souriez pas dès la page 5, nous... on sait que vous sourirez.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px;">Questions Fréquentes</h2>
+
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">Est-ce que c'est un livre érotique ? <span>+</span></div>
+                <div class="faq-answer">C'est un guide pour couples. Il contient des sections romantiques, des jeux de
+                    communication, mais aussi des sections "hot" et audacieuses (clairement indiquées) pour ceux qui
+                    veulent aller plus loin.</div>
+            </div>
+
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">Comment je reçois le livre ? <span>+</span></div>
+                <div class="faq-answer">Immédiatement après le paiement, vous recevez un lien de téléchargement par
+                    email et sur la page de confirmation.</div>
+            </div>
+
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">Est-ce adapté aux nouveaux couples ? <span>+</span></div>
+                <div class="faq-answer">Absolument ! C'est génial pour apprendre à se connaître rapidement en
+                    profondeur. Et pour les couples installés, c'est parfait pour redécouvrir l'autre.</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 E-book Expérience. Tous droits réservés.</p>
+            <p>Contact Support : WhatsApp +229 69473921</p>
+            <p style="margin-top: 10px; font-size: 0.8rem;">Ce site ne fait pas partie du site Facebook ou de Facebook
+                Inc.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Petit script pour l'effet "Smooth Scroll"
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
