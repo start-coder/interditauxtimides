@@ -4,341 +4,283 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saint-Valentin 2026 : L'Expérience Interdite aux Timides</title>
+    <title>Interdit aux timides</title>
+
+    <!-- Fonts Premium -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+        <!-- Favicon local (fichier dans le même dossier) -->
+        <link rel="icon" href="amour.png" type="image/png">
+        <!-- Pour une meilleure compatibilité, ajoute aussi ceci : -->
+        <link rel="shortcut icon" href="amour.png" type="image/png">
+   
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Playfair+Display:wght@600;700;900&family=DM+Sans:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
     <style>
-        /* --- CHARTE GRAPHIQUE & RESET --- */
+        /* ========================================
+           🎨 VARIABLES & RESET PREMIUM
+        ======================================== */
         :root {
-            --black: #0a0a0a;
-            --dark-grey: #1a1a1a;
-            --burgundy: #720e1e;
-            /* Rouge Bordeaux Profond */
-            --gold: #d4af37;
-            /* Doré Premium */
-            --ivory: #f5f5f0;
-            --text-color: #e0e0e0;
+            --night-black: #0a0a0a;
+            --deep-charcoal: #141414;
+            --burgundy-passion: #8b1538;
+            --burgundy-glow: #a91d47;
+            --champagne-gold: #d4af37;
+            --rose-gold: #e8b298;
+            --pearl-white: #faf8f6;
+            --soft-cream: #f5f1eb;
+            --smoke-grey: #4a4a4a;
+            --text-light: #d4d4d4;
+
+            --font-display: 'Playfair Display', serif;
+            --font-elegant: 'Cormorant Garamond', serif;
+            --font-modern: 'DM Sans', sans-serif;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
         }
 
         body {
-            background-color: var(--black);
-            color: var(--text-color);
-            line-height: 1.6;
+            background-color: var(--night-black);
+            color: var(--text-light);
+            font-family: var(--font-modern);
+            line-height: 1.7;
             overflow-x: hidden;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: 0.3s;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        /* --- TYPOGRAPHIE --- */
-        h1,
-        h2,
-        h3 {
-            font-family: 'Georgia', serif;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-
-        .text-gold {
-            color: var(--gold);
-        }
-
-        .text-burgundy {
-            color: var(--burgundy);
-        }
-
-        .highlight {
-            border-bottom: 2px solid var(--burgundy);
-        }
-
-        /* --- UTILS --- */
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .btn {
-            display: inline-block;
-            background: linear-gradient(45deg, var(--burgundy), #901528);
-            color: white;
-            padding: 18px 40px;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 10px 30px rgba(114, 14, 30, 0.4);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid transparent;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(114, 14, 30, 0.6);
-            border-color: var(--gold);
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--gold);
-            color: var(--gold);
-        }
-
-        .btn-outline:hover {
-            background: var(--gold);
-            color: var(--black);
-        }
-
-        /* --- HERO SECTION --- */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%);
             position: relative;
-            padding: 20px;
         }
 
-        .hero::before {
+        /* Effet de grain premium sur toute la page */
+        body::before {
             content: '';
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('https://images.unsplash.com/photo-1518199266791-5375a83190b7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover;
-            opacity: 0.15;
-            filter: grayscale(100%);
-            z-index: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.025;
+            pointer-events: none;
+            z-index: 9999;
         }
 
-        .hero-content {
+        ::selection {
+            background: var(--burgundy-passion);
+            color: var(--pearl-white);
+        }
+
+        /* ========================================
+           🎯 TYPOGRAPHY PREMIUM
+        ======================================== */
+        h1,
+        h2,
+        h3 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+        }
+
+        .elegant-text {
+            font-family: var(--font-elegant);
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .gold-accent {
+            color: var(--champagne-gold);
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .burgundy-accent {
+            color: var(--burgundy-glow);
+            text-shadow: 0 0 20px rgba(169, 29, 71, 0.4);
+        }
+
+        /* ========================================
+           🚀 BUTTONS PREMIUM
+        ======================================== */
+        .btn-primary {
             position: relative;
-            z-index: 2;
-            max-width: 800px;
-            animation: fadeInUp 1.2s ease-out;
-        }
-
-        .badge {
-            background: var(--gold);
-            color: var(--black);
-            padding: 5px 15px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            color: var(--ivory);
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            color: #aaa;
-            margin-bottom: 40px;
-        }
-
-        /* --- PAIN/AGITATION --- */
-        .problem-section {
-            padding: 80px 0;
-            background: var(--dark-grey);
-            text-align: center;
-        }
-
-        .problem-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .problem-card {
-            padding: 30px;
-            border: 1px solid #333;
-            transition: 0.3s;
-        }
-
-        .problem-card:hover {
-            border-color: var(--burgundy);
-            background: #0f0f0f;
-        }
-
-        .problem-icon {
-            font-size: 2rem;
-            margin-bottom: 15px;
-            color: var(--burgundy);
-        }
-
-        /* --- SNEAK PEEK (BOOK CONTENT) --- */
-        .content-section {
-            padding: 100px 0;
-        }
-
-        .flex-row {
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            gap: 50px;
-            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            padding: 22px 50px;
+            background: linear-gradient(135deg, var(--burgundy-passion) 0%, var(--burgundy-glow) 100%);
+            color: white;
+            font-family: var(--font-modern);
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border: none;
+            border-radius: 60px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+            box-shadow:
+                0 4px 15px rgba(139, 21, 56, 0.4),
+                0 10px 40px rgba(139, 21, 56, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
 
-        .col-half {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .book-mockup {
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
             width: 100%;
-            height: 500px;
-            background: linear-gradient(135deg, #222, #000);
-            border: 1px solid #333;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow:
+                0 6px 25px rgba(139, 21, 56, 0.6),
+                0 15px 50px rgba(139, 21, 56, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-secondary {
+            padding: 18px 40px;
+            background: transparent;
+            color: var(--champagne-gold);
+            border: 2px solid var(--champagne-gold);
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-secondary::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: var(--champagne-gold);
+            transform: translate(-50%, -50%);
+            transition: width 0.4s, height 0.4s;
+        }
+
+        .btn-secondary:hover {
+            color: var(--night-black);
+            border-color: var(--champagne-gold);
+        }
+
+        .btn-secondary:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+
+        .btn-secondary span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ========================================
+           🌟 HERO SECTION - ULTRA PREMIUM
+        ======================================== */
+        .hero {
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            padding: 40px 20px;
+            overflow: hidden;
         }
 
-        .book-mockup::after {
-            content: 'VISUEL E-BOOK ICI';
-            color: #444;
-            font-weight: bold;
-        }
-
-        .chapter-list li {
-            margin-bottom: 15px;
-            padding-left: 20px;
-            position: relative;
-            font-size: 1.1rem;
-        }
-
-        .chapter-list li::before {
-            content: '✦';
-            color: var(--gold);
+        /* Background animé avec gradient */
+        .hero::before {
+            content: '';
             position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background:
+                radial-gradient(circle at 30% 40%, rgba(139, 21, 56, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 70% 60%, rgba(212, 175, 55, 0.08) 0%, transparent 50%);
+            animation: gradientShift 20s ease infinite;
+        }
+
+        @keyframes gradientShift {
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            50% {
+                transform: translate(-10%, -10%) rotate(180deg);
+            }
+        }
+
+        /* Particules flottantes premium */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
             left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(2px 2px at 20% 30%, rgba(212, 175, 55, 0.3), transparent),
+                radial-gradient(2px 2px at 60% 70%, rgba(169, 29, 71, 0.3), transparent),
+                radial-gradient(1px 1px at 80% 10%, rgba(212, 175, 55, 0.2), transparent),
+                radial-gradient(1px 1px at 40% 80%, rgba(232, 178, 152, 0.3), transparent),
+                radial-gradient(2px 2px at 90% 50%, rgba(212, 175, 55, 0.2), transparent),
+                radial-gradient(1px 1px at 15% 60%, rgba(169, 29, 71, 0.2), transparent);
+            background-size: 200% 200%;
+            background-position: 0% 0%;
+            animation: particleFloat 30s ease-in-out infinite;
+            opacity: 0.6;
         }
 
-        /* --- SOCIAL PROOF --- */
-        .testimonials {
-            padding: 80px 0;
-            background: #0f0f0f;
-            border-top: 1px solid #222;
-            border-bottom: 1px solid #222;
+        @keyframes particleFloat {
+
+            0%,
+            100% {
+                background-position: 0% 0%;
+            }
+
+            50% {
+                background-position: 100% 100%;
+            }
         }
 
-        .testimonial-card {
-            background: var(--black);
-            padding: 30px;
-            margin: 20px 0;
-            border-left: 3px solid var(--gold);
-        }
-
-        .stars {
-            color: var(--gold);
-            margin-bottom: 10px;
-        }
-
-        /* --- PRICING & OFFER --- */
-        .offer-section {
-            padding: 100px 0;
-            text-align: center;
-            background: radial-gradient(circle, #1a0508 0%, #000 100%);
-        }
-
-        .price-box {
-            background: rgba(255, 255, 255, 0.03);
-            border: 2px solid var(--gold);
-            padding: 50px;
-            max-width: 600px;
-            margin: 0 auto;
+        .hero-content {
             position: relative;
-        }
-
-        .price-tag {
-            font-size: 4rem;
-            font-weight: 700;
-            color: var(--gold);
-            line-height: 1;
-            margin: 20px 0;
-        }
-
-        .old-price {
-            text-decoration: line-through;
-            color: #666;
-            font-size: 1.5rem;
-        }
-
-        .timer {
-            font-size: 1.2rem;
-            color: var(--burgundy);
-            font-weight: bold;
-            margin-top: 20px;
-            animation: pulse 2s infinite;
-        }
-
-        /* --- FAQ --- */
-        .faq {
-            padding: 80px 0;
-        }
-
-        .faq-item {
-            border-bottom: 1px solid #333;
-            padding: 20px 0;
-            cursor: pointer;
-        }
-
-        .faq-question {
-            font-size: 1.2rem;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .faq-answer {
-            display: none;
-            margin-top: 15px;
-            color: #999;
-        }
-
-        .faq-item.active .faq-answer {
-            display: block;
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            padding: 40px 0;
+            z-index: 10;
+            max-width: 950px;
             text-align: center;
-            border-top: 1px solid #222;
-            font-size: 0.9rem;
-            color: #666;
+            animation: heroFadeIn 1.2s cubic-bezier(0.23, 1, 0.320, 1);
         }
 
-        /* --- ANIMATIONS --- */
-        @keyframes fadeInUp {
+        @keyframes heroFadeIn {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(40px);
             }
 
             to {
@@ -347,207 +289,2345 @@
             }
         }
 
-        @keyframes pulse {
-            0% {
-                opacity: 0.7;
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 24px;
+            background: linear-gradient(135deg, var(--champagne-gold), var(--rose-gold));
+            color: var(--night-black);
+            font-family: var(--font-modern);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            border-radius: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            animation: badgePulse 3s ease-in-out infinite;
+        }
+
+        @keyframes badgePulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            }
+
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            margin-bottom: 25px;
+            color: var(--pearl-white);
+            line-height: 1.1;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--burgundy-passion), var(--burgundy-glow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero h1 .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--burgundy-glow), transparent);
+            animation: underlineGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes underlineGlow {
+
+            0%,
+            100% {
+                opacity: 0.5;
             }
 
             50% {
                 opacity: 1;
             }
+        }
 
-            100% {
-                opacity: 0.7;
+        .hero-subtitle {
+            font-family: var(--font-elegant);
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            color: var(--text-light);
+            margin-bottom: 40px;
+            line-height: 1.6;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+
+        .hero-trust {
+            font-size: 0.9rem;
+            color: var(--smoke-grey);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .hero-trust::before {
+            content: '🔒';
+            font-size: 1rem;
+        }
+
+        /* ========================================
+           ⚡ SECTION URGENCE / SCARCITÉ
+        ======================================== */
+        .urgency-bar {
+            background: linear-gradient(135deg, #1a0508, #2a0a0f);
+            border-top: 1px solid rgba(139, 21, 56, 0.3);
+            border-bottom: 1px solid rgba(139, 21, 56, 0.3);
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            animation: urgencySlideDown 0.6s ease-out;
+            backdrop-filter: blur(10px);
+        }
+
+        @keyframes urgencySlideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
             }
         }
 
-        /* --- RESPONSIVE --- */
+        .urgency-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .urgency-timer {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .timer-unit {
+            text-align: center;
+            background: rgba(212, 175, 55, 0.05);
+            padding: 10px 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            min-width: 70px;
+        }
+
+        .timer-number {
+            display: block;
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--champagne-gold);
+            line-height: 1;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+        }
+
+        .timer-label {
+            display: block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+
+        .urgency-text {
+            font-size: 1rem;
+            color: var(--text-light);
+        }
+
+        .urgency-text strong {
+            color: var(--burgundy-glow);
+            font-weight: 700;
+        }
+
+        /* Animation pour les places restantes critiques */
+        @keyframes criticalPulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                color: var(--burgundy-glow);
+            }
+
+            50% {
+                transform: scale(1.1);
+                color: #ff4444;
+            }
+        }
+
+        /* ========================================
+           💔 SECTION PROBLÈME - AGITATION
+        ======================================== */
+        .problem-section {
+            padding: 120px 20px;
+            background: linear-gradient(180deg, var(--night-black) 0%, var(--deep-charcoal) 100%);
+            position: relative;
+        }
+
+        .problem-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 80px;
+            background: linear-gradient(to bottom, transparent, var(--burgundy-passion), transparent);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 20px;
+            color: var(--pearl-white);
+        }
+
+        .section-header p {
+            font-family: var(--font-elegant);
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .problem-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(139, 21, 56, 0.2);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(139, 21, 56, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--burgundy-glow);
+            box-shadow: 0 20px 50px rgba(139, 21, 56, 0.2);
+        }
+
+        .problem-card:hover::before {
+            opacity: 1;
+        }
+
+        .problem-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            display: block;
+            filter: grayscale(50%);
+            transition: all 0.4s;
+        }
+
+        .problem-card:hover .problem-icon {
+            filter: grayscale(0%);
+            transform: scale(1.1);
+        }
+
+        .problem-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--champagne-gold);
+        }
+
+        .problem-card p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* ========================================
+           ✨ SOLUTION - PRÉSENTATION DU LIVRE
+        ======================================== */
+        .solution-section {
+            padding: 120px 20px;
+            background: var(--night-black);
+            position: relative;
+        }
+
+        .solution-flex {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .solution-visual {
+            position: relative;
+        }
+
+        .book-mockup-container {
+            position: relative;
+            perspective: 1500px;
+        }
+
+        .book-mockup {
+            width: 100%;
+            aspect-ratio: 3/4;
+            background:
+                url('Mockup Livre St Valentin-Photoroom.png') center/contain no-repeat,
+                linear-gradient(135deg, #1a1a1a, #0a0a0a);
+            border-radius: 15px;
+            box-shadow:
+                0 40px 80px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(212, 175, 55, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            transform: rotateY(-15deg) rotateX(5deg);
+            transition: transform 0.6s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .book-mockup:hover {
+            transform: rotateY(0deg) rotateX(0deg) scale(1.02);
+        }
+
+        .book-glow {
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.15), transparent 70%);
+            animation: glowPulse 4s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes glowPulse {
+
+            0%,
+            100% {
+                opacity: 0.3;
+                transform: scale(0.8);
+            }
+
+            50% {
+                opacity: 0.6;
+                transform: scale(1.2);
+            }
+        }
+
+        .solution-content h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+
+        .solution-content p {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+
+        .features-list li {
+            padding: 18px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 1.05rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            transition: all 0.3s;
+        }
+
+        .features-list li:hover {
+            padding-left: 10px;
+            border-bottom-color: var(--burgundy-passion);
+        }
+
+        .features-list li::before {
+            content: '✦';
+            color: var(--champagne-gold);
+            font-size: 1.3rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .features-list li strong {
+            color: var(--champagne-gold);
+            font-weight: 600;
+        }
+
+        /* ========================================
+           💬 CITATION ÉMOTIONNELLE
+        ======================================== */
+        .quote-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, var(--burgundy-passion), #6b1129);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote-section::before {
+            content: '"';
+            position: absolute;
+            top: -100px;
+            left: 50px;
+            font-family: var(--font-display);
+            font-size: 30rem;
+            color: rgba(255, 255, 255, 0.03);
+            line-height: 1;
+        }
+
+        .quote-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .quote-content blockquote {
+            font-family: var(--font-elegant);
+            font-size: clamp(1.3rem, 3vw, 2rem);
+            font-style: italic;
+            font-weight: 400;
+            color: white;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .quote-author {
+            font-family: var(--font-modern);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--champagne-gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* ========================================
+           ⭐ TÉMOIGNAGES SOCIAUX
+        ======================================== */
+        .testimonials-section {
+            padding: 120px 20px;
+            background: var(--deep-charcoal);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.02);
+            border-left: 3px solid var(--champagne-gold);
+            border-radius: 12px;
+            padding: 35px 30px;
+            transition: all 0.4s;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-family: var(--font-display);
+            font-size: 4rem;
+            color: rgba(212, 175, 55, 0.1);
+            line-height: 1;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.04);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .stars {
+            color: var(--champagne-gold);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            letter-spacing: 3px;
+        }
+
+        .testimonial-text {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .testimonial-author {
+            font-size: 0.9rem;
+            color: var(--smoke-grey);
+            font-weight: 500;
+        }
+
+        /* ========================================
+           💰 SECTION PRIX - ULTRA CONVERTISSANTE
+        ======================================== */
+        .pricing-section {
+            padding: 120px 20px;
+            background:
+                radial-gradient(circle at top, rgba(139, 21, 56, 0.15), transparent 60%),
+                var(--night-black);
+            position: relative;
+        }
+
+        .pricing-box {
+            max-width: 700px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, rgba(26, 5, 8, 0.8), rgba(20, 20, 20, 0.8));
+            border: 2px solid var(--champagne-gold);
+            border-radius: 30px;
+            padding: 60px 50px;
+            position: relative;
+            box-shadow:
+                0 30px 80px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            text-align: center;
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--burgundy-passion), var(--burgundy-glow));
+            color: white;
+            padding: 8px 30px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 4px 15px rgba(139, 21, 56, 0.5);
+        }
+
+        .pricing-header h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 15px;
+        }
+
+        .pricing-header p {
+            font-family: var(--font-elegant);
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 35px;
+        }
+
+        .price-display {
+            margin: 30px 0;
+        }
+
+        .old-price {
+            font-size: 1.8rem;
+            color: var(--smoke-grey);
+            text-decoration: line-through;
+            margin-bottom: 10px;
+        }
+
+        .current-price {
+            font-family: var(--font-display);
+            font-size: 5rem;
+            font-weight: 900;
+            color: var(--champagne-gold);
+            line-height: 1;
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+            margin-bottom: 10px;
+        }
+
+        .price-subtext {
+            font-size: 1rem;
+            color: var(--text-light);
+        }
+
+        .benefits-list {
+            list-style: none;
+            text-align: left;
+            margin: 40px 0;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        .benefits-list li {
+            padding: 12px 0;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-light);
+        }
+
+        .benefits-list li::before {
+            content: '✓';
+            background: var(--champagne-gold);
+            color: var(--night-black);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .pricing-cta {
+            margin: 30px 0;
+        }
+
+        .pricing-cta .btn-primary {
+            width: 100%;
+            font-size: 1.2rem;
+            padding: 25px;
+        }
+
+        .countdown-timer {
+            background: rgba(139, 21, 56, 0.2);
+            border: 1px solid rgba(139, 21, 56, 0.4);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 25px;
+            animation: timerPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes timerPulse {
+
+            0%,
+            100% {
+                border-color: rgba(139, 21, 56, 0.4);
+            }
+
+            50% {
+                border-color: rgba(139, 21, 56, 0.8);
+            }
+        }
+
+        .countdown-timer p {
+            font-size: 1rem;
+            color: var(--burgundy-glow);
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .guarantee-section {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .guarantee-section p {
+            font-size: 0.95rem;
+            color: var(--smoke-grey);
+            line-height: 1.6;
+        }
+
+        .guarantee-section strong {
+            color: var(--champagne-gold);
+        }
+
+        /* ========================================
+           ❓ FAQ SECTION
+        ======================================== */
+        .faq-section {
+            padding: 120px 20px;
+            background: var(--deep-charcoal);
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 60px auto 0;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        .faq-question {
+            padding: 25px 30px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--pearl-white);
+            transition: all 0.3s;
+        }
+
+        .faq-question:hover {
+            color: var(--champagne-gold);
+        }
+
+        .faq-toggle {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--champagne-gold);
+            transition: all 0.3s;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+            background: var(--champagne-gold);
+            color: var(--night-black);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            padding: 0 30px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 30px 25px 30px;
+        }
+
+        .faq-answer p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* ========================================
+           🎁 BONUS SECTION
+        ======================================== */
+        .bonus-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #1a0508, var(--night-black));
+        }
+
+        .bonus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .bonus-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.4s;
+        }
+
+        .bonus-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--champagne-gold);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.1);
+        }
+
+        .bonus-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .bonus-card h3 {
+            font-size: 1.3rem;
+            color: var(--champagne-gold);
+            margin-bottom: 15px;
+        }
+
+        .bonus-card p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* ========================================
+           👣 FOOTER
+        ======================================== */
+        footer {
+            padding: 60px 20px 40px;
+            background: var(--night-black);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--smoke-grey);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: var(--champagne-gold);
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--rose-gold);
+        }
+
+        /* ========================================
+           💳 MODAL DE CHOIX DE PAIEMENT
+        ======================================== */
+        .payment-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10001;
+            animation: popupFadeIn 0.3s ease;
+            backdrop-filter: blur(10px);
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .payment-modal.active {
+            display: flex;
+        }
+
+        .payment-modal-content {
+            background: linear-gradient(135deg, var(--deep-charcoal), var(--night-black));
+            border: 2px solid var(--champagne-gold);
+            border-radius: 25px;
+            padding: 50px 40px;
+            max-width: 650px;
+            width: 100%;
+            position: relative;
+            text-align: center;
+            animation: popupSlideUp 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+            box-shadow:
+                0 30px 80px rgba(212, 175, 55, 0.3),
+                0 0 0 1px rgba(212, 175, 55, 0.1);
+            margin: auto;
+        }
+
+        .payment-modal-content h3 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: var(--pearl-white);
+        }
+
+        .payment-modal-content>p {
+            font-family: var(--font-elegant);
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+        }
+
+        .payment-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .payment-option {
+            background: rgba(255, 255, 255, 0.02);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 35px 25px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .payment-option::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--burgundy-passion), transparent);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .payment-option:hover {
+            transform: translateY(-5px);
+            border-color: var(--champagne-gold);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+        }
+
+        .payment-option:hover::before {
+            opacity: 0.1;
+        }
+
+        .payment-icon {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            display: block;
+            position: relative;
+            z-index: 2;
+        }
+
+        .payment-option h4 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--champagne-gold);
+            position: relative;
+            z-index: 2;
+        }
+
+        .payment-option p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.5;
+            position: relative;
+            z-index: 2;
+        }
+
+        .payment-badge {
+            display: inline-block;
+            background: var(--champagne-gold);
+            color: var(--night-black);
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-top: 10px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .payment-note {
+            background: rgba(212, 175, 55, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 25px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .payment-note strong {
+            color: var(--champagne-gold);
+        }
+
+        /* ========================================
+           🔥 POPUP D'URGENCE (Exit Intent)
+        ======================================== */
+        .exit-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            animation: popupFadeIn 0.3s ease;
+            backdrop-filter: blur(10px);
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .exit-popup.active {
+            display: flex;
+        }
+
+        @keyframes popupFadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .popup-content {
+            background: linear-gradient(135deg, var(--deep-charcoal), var(--night-black));
+            border: 2px solid var(--burgundy-glow);
+            border-radius: 25px;
+            padding: 50px 40px;
+            max-width: 600px;
+            width: 100%;
+            position: relative;
+            text-align: center;
+            animation: popupSlideUp 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+            box-shadow: 0 30px 80px rgba(139, 21, 56, 0.5);
+            margin: auto;
+        }
+
+        @keyframes popupSlideUp {
+            from {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 35px;
+            height: 35px;
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1.5rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .popup-close:hover {
+            background: var(--burgundy-passion);
+            transform: rotate(90deg);
+        }
+
+        .popup-content h3 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--champagne-gold);
+        }
+
+        .popup-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .popup-offer {
+            background: rgba(139, 21, 56, 0.2);
+            border: 1px solid var(--burgundy-glow);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .popup-offer .price {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--champagne-gold);
+            font-family: var(--font-display);
+        }
+
+        /* ========================================
+           📱 RESPONSIVE DESIGN - OPTIMISÉ MOBILE & TABLET
+        ======================================== */
+
+        /* Tablettes et petits laptops */
+        @media (max-width: 968px) {
+            .solution-flex {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .book-mockup {
+                transform: none;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .urgency-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .problem-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bonus-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smartphones et petits écrans */
         @media (max-width: 768px) {
+
+            /* Hero Section */
+            .hero {
+                min-height: 90vh;
+                padding: 60px 15px 40px 15px;
+            }
+
             .hero h1 {
+                font-size: 2rem;
+                line-height: 1.2;
+                margin-bottom: 20px;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+                margin-bottom: 30px;
+            }
+
+            .hero-badge {
+                font-size: 0.65rem;
+                padding: 6px 18px;
+                margin-bottom: 20px;
+            }
+
+            .hero-cta-group {
+                flex-direction: column;
+                gap: 15px;
+                width: 100%;
+            }
+
+            .btn-primary {
+                width: 100%;
+                padding: 18px 30px;
+                font-size: 0.95rem;
+            }
+
+            .btn-secondary {
+                width: 100%;
+                padding: 16px 30px;
+            }
+
+            /* Urgency Bar */
+            .urgency-bar {
+                padding: 15px 10px;
+            }
+
+            .timer-unit {
+                min-width: 60px;
+                padding: 8px 10px;
+            }
+
+            .timer-number {
+                font-size: 1.5rem;
+            }
+
+            .timer-label {
+                font-size: 0.65rem;
+            }
+
+            .urgency-text {
+                font-size: 0.85rem;
+                text-align: center;
+            }
+
+            /* Sections */
+            .section-header h2 {
+                font-size: 1.8rem;
+                margin-bottom: 15px;
+            }
+
+            .section-header p {
+                font-size: 1rem;
+            }
+
+            .problem-section,
+            .solution-section,
+            .testimonials-section,
+            .bonus-section,
+            .pricing-section,
+            .faq-section {
+                padding: 60px 15px;
+            }
+
+            /* Problem Cards */
+            .problem-card {
+                padding: 30px 20px;
+            }
+
+            .problem-icon {
                 font-size: 2.5rem;
             }
 
-            .flex-row {
-                flex-direction: column-reverse;
+            .problem-card h3 {
+                font-size: 1.3rem;
             }
+
+            /* Solution Section */
+            .solution-content h2 {
+                font-size: 1.8rem;
+                margin-bottom: 20px;
+            }
+
+            .solution-content p {
+                font-size: 1rem;
+            }
+
+            .features-list li {
+                font-size: 0.95rem;
+                padding: 15px 0;
+            }
+
+            /* Quote Section */
+            .quote-section {
+                padding: 60px 15px;
+            }
+
+            .quote-content blockquote {
+                font-size: 1.2rem;
+            }
+
+            /* Testimonials */
+            .testimonial-card {
+                padding: 25px 20px;
+            }
+
+            .testimonial-text {
+                font-size: 0.95rem;
+            }
+
+            /* Bonus Cards */
+            .bonus-card {
+                padding: 25px 20px;
+            }
+
+            .bonus-icon {
+                font-size: 2.5rem;
+            }
+
+            /* Pricing Section */
+            .pricing-box {
+                padding: 40px 20px;
+                margin: 0 10px;
+            }
+
+            .pricing-badge {
+                font-size: 0.7rem;
+                padding: 6px 20px;
+            }
+
+            .pricing-header h2 {
+                font-size: 1.6rem;
+            }
+
+            .pricing-header p {
+                font-size: 1rem;
+            }
+
+            .current-price {
+                font-size: 3rem;
+            }
+
+            .old-price {
+                font-size: 1.3rem;
+            }
+
+            .benefits-list {
+                padding: 20px 15px;
+            }
+
+            .benefits-list li {
+                font-size: 0.95rem;
+                padding: 10px 0;
+            }
+
+            .pricing-cta .btn-primary {
+                width: 100%;
+                font-size: 1rem;
+                padding: 20px;
+            }
+
+            .countdown-timer {
+                padding: 15px;
+            }
+
+            .countdown-timer p {
+                font-size: 0.9rem;
+            }
+
+            /* FAQ */
+            .faq-question {
+                padding: 20px;
+                font-size: 1rem;
+            }
+
+            .faq-answer {
+                padding: 0 20px;
+            }
+
+            .faq-item.active .faq-answer {
+                padding: 0 20px 20px 20px;
+            }
+
+            /* Payment Modal */
+            .payment-modal-content {
+                padding: 30px 20px;
+                max-width: 95%;
+            }
+
+            .payment-modal-content h3 {
+                font-size: 1.6rem;
+                margin-bottom: 10px;
+            }
+
+            .payment-modal-content>p {
+                font-size: 0.95rem;
+                margin-bottom: 25px;
+            }
+
+            .payment-options {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                margin-bottom: 20px;
+            }
+
+            .payment-option {
+                padding: 25px 20px;
+            }
+
+            .payment-icon {
+                font-size: 2.8rem;
+                margin-bottom: 12px;
+            }
+
+            .payment-option h4 {
+                font-size: 1.2rem;
+            }
+
+            .payment-option p {
+                font-size: 0.85rem;
+            }
+
+            .payment-note {
+                padding: 15px;
+                font-size: 0.85rem;
+                margin-top: 15px;
+            }
+
+            /* Exit Popup */
+            .popup-content {
+                padding: 35px 25px;
+                max-width: 95%;
+            }
+
+            .popup-content h3 {
+                font-size: 2rem;
+            }
+
+            .popup-content p {
+                font-size: 1rem;
+            }
+
+            .popup-offer {
+                padding: 20px;
+                margin-bottom: 25px;
+            }
+
+            .popup-offer .price {
+                font-size: 2.5rem;
+            }
+
+            /* Footer */
+            footer {
+                padding: 40px 20px 30px;
+            }
+
+            footer p {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Très petits écrans (moins de 400px) */
+        @media (max-width: 400px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .btn-primary {
+                font-size: 0.9rem;
+                padding: 16px 25px;
+            }
+
+            .section-header h2 {
+                font-size: 1.6rem;
+            }
+
+            .current-price {
+                font-size: 2.5rem;
+            }
+
+            .payment-modal-content h3 {
+                font-size: 1.4rem;
+            }
+
+            .payment-icon {
+                font-size: 2.5rem;
+            }
+
+            .timer-unit {
+                min-width: 50px;
+                padding: 6px 8px;
+            }
+
+            .timer-number {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* Très grands écrans (desktop XL) */
+        @media (min-width: 1400px) {
+            .container {
+                max-width: 1300px;
+            }
+
+            .hero h1 {
+                font-size: 5.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.8rem;
+            }
+
+            .section-header h2 {
+                font-size: 4rem;
+            }
+        }
+
+        /* Mode paysage mobile */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .hero {
+                min-height: auto;
+                padding: 40px 15px;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+                margin-bottom: 15px;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+                margin-bottom: 20px;
+            }
+
+            .hero-badge {
+                margin-bottom: 15px;
+            }
+        }
+
+        /* ========================================
+           🎭 ANIMATIONS AVANCÉES
+        ======================================== */
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Scroll Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.320, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 
 <body>
 
+    <!-- ========================================
+         🔥 BARRE D'URGENCE STICKY
+    ======================================== -->
+    <div class="urgency-bar">
+        <div class="urgency-content">
+            <div class="urgency-timer">
+                <div class="timer-unit">
+                    <span class="timer-number" id="hours">12</span>
+                    <span class="timer-label">Heures</span>
+                </div>
+                <div class="timer-unit">
+                    <span class="timer-number" id="minutes">34</span>
+                    <span class="timer-label">Minutes</span>
+                </div>
+                <div class="timer-unit">
+                    <span class="timer-number" id="seconds">56</span>
+                    <span class="timer-label">Secondes</span>
+                </div>
+            </div>
+            <div class="urgency-text">
+                <strong>Offre limitée :</strong> Plus que <strong id="spots-remaining">23 places</strong> disponibles à
+                ce prix
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================
+         🌟 HERO SECTION
+    ======================================== -->
     <section class="hero">
         <div class="hero-content">
-            <span class="badge">Édition Spéciale Saint-Valentin 2026</span>
-            <h1>Votre couple peut tout vivre... <br><span class="text-burgundy">si vous OSEZ.</span></h1>
-            <p>Le guide interactif pour briser la routine, éveiller les sens et vivre une connexion <span
-                    class="text-gold">intense et inoubliable</span>.</p>
-            <a href="#offre" class="btn">Je télécharge l'expérience (4500 FCFA)</a>
-            <p style="font-size: 0.9rem; margin-top: 15px; opacity: 0.7;">🔒 Téléchargement immédiat & discret</p>
+            <span class="hero-badge">✨ Édition Spéciale Saint-Valentin 2026</span>
+
+            <h1>
+                Et si cette année, votre couple<br>
+                vivait enfin <span class="highlight">l'inoubliable</span> ?
+            </h1>
+
+            <p class="hero-subtitle">
+                Le guide interactif pour sortir de la routine, raviver la passion
+                et créer une connexion <span class="gold-accent">intense, complice et sensuelle</span>
+                sans maladresse ni gêne.
+            </p>
+
+            <div class="hero-cta-group">
+                <button class="btn-primary" onclick="handlePurchase()">
+                    🔥 Je veux transformer mon couple (4500 FCFA)
+                </button>
+            </div>
+
+            <p class="hero-trust">
+                Téléchargement immédiat & 100% discret
+            </p>
         </div>
     </section>
 
+    <!-- ========================================
+         💔 SECTION PROBLÈME
+    ======================================== -->
     <section class="problem-section">
         <div class="container">
-            <h2>La Saint-Valentin ne devrait pas être <span class="highlight">ennuyeuse</span>.</h2>
-            <p style="max-width: 600px; margin: 20px auto; color: #aaa;">Vous aimez votre partenaire, mais la routine
-                s'installe ? Les soirées se ressemblent ? Vous avez envie de plus de piment mais vous ne savez pas
-                comment l'amener sans maladresse ?</p>
+            <div class="section-header reveal">
+                <h2>
+                    La Saint-Valentin ne devrait pas être<br>
+                    <span class="burgundy-accent">un copier-coller de l'année dernière</span>
+                </h2>
+                <p>
+                    Vous aimez votre partenaire. Mais avouez-le : la routine s'installe,
+                    les soirées se ressemblent, et vous ne savez plus comment
+                    <strong>rallumer la flamme sans que ça sonne faux</strong>.
+                </p>
+            </div>
 
             <div class="problem-grid">
-                <div class="problem-card">
-                    <div class="problem-icon">🥀</div>
-                    <h3>La Routine</h3>
-                    <p>Mêmes gestes, mêmes paroles... le désir a besoin de surprise pour survivre.</p>
+                <div class="problem-card reveal">
+                    <span class="problem-icon">🥀</span>
+                    <h3>La Routine Invisible</h3>
+                    <p>
+                        Mêmes gestes, mêmes mots, mêmes soirées.
+                        Le désir a besoin de surprise pour survivre...
+                        mais comment surprendre sans gêne ?
+                    </p>
                 </div>
-                <div class="problem-card">
-                    <div class="problem-icon">🤐</div>
-                    <h3>Le Silence</h3>
-                    <p>Ne pas oser dire ses fantasmes ou ses envies par peur d'être jugé.</p>
+
+                <div class="problem-card reveal">
+                    <span class="problem-icon">🤐</span>
+                    <h3>Les Non-Dits</h3>
+                    <p>
+                        Vos fantasmes, vos envies... ils restent dans votre tête
+                        par peur d'être jugé ou de briser l'instant.
+                    </p>
                 </div>
-                <div class="problem-card">
-                    <div class="problem-icon">📱</div>
-                    <h3>La Distraction</h3>
-                    <p>Être ensemble dans la même pièce, mais connectés à vos téléphones plutôt qu'à l'autre.</p>
+
+                <div class="problem-card reveal">
+                    <span class="problem-icon">📱</span>
+                    <h3>La Distraction Permanente</h3>
+                    <p>
+                        Vous êtes ensemble dans la même pièce,
+                        mais connectés à vos téléphones plutôt qu'à l'autre.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="content-section">
+    <!-- ========================================
+         ✨ SECTION SOLUTION
+    ======================================== -->
+    <section class="solution-section">
         <div class="container">
-            <div class="flex-row">
-                <div class="col-half">
-                    <h2 style="margin-bottom: 20px;">Ce n'est pas un livre.<br><span class="text-gold">C'est un
-                            déclencheur.</span></h2>
-                    <p style="margin-bottom: 30px;">"E-book St Valentin 2026" a été conçu pour créer les conditions
-                        parfaites. Vous n'avez rien à inventer, juste à vous laisser guider.</p>
-
-                    <ul class="chapter-list">
-                        <li><strong>Action ou Vérité Progressif :</strong> 3 niveaux de chaleur, du rire complice à
-                            l'audace totale.</li>
-                        <li><strong>50 Jeux de Couple :</strong> Des défis sensoriels, romantiques et excitants.</li>
-                        <li><strong>Messages & Confessions :</strong> Les mots exacts pour faire monter la température
-                            par SMS.</li>
-                        <li><strong>Scénarios Guidés :</strong> Des jeux de rôles discrets pour pimenter le quotidien.
-                        </li>
-                        <li><strong>Guide Cinéma & Musique :</strong> Une sélection de films avec leur "mode d'emploi
-                            émotionnel".</li>
-                    </ul>
-                    <br>
-                    <a href="#offre" class="btn btn-outline">Voir le sommaire complet</a>
+            <div class="solution-flex">
+                <div class="solution-visual reveal">
+                    <div class="book-mockup-container">
+                        <div class="book-glow"></div>
+                        <div class="book-mockup floating"></div>
+                    </div>
                 </div>
-                <div class="col-half">
-                    <div class="book-mockup">
+
+                <div class="solution-content reveal">
+                    <h2>
+                        Ce n'est pas un livre.<br>
+                        <span class="gold-accent">C'est un déclencheur d'expériences.</span>
+                    </h2>
+
+                    <p>
+                        <strong>"Interdit aux couples timides"</strong> a été conçu pour créer
+                        les conditions parfaites. Vous n'avez rien à inventer,
+                        <strong>juste à vous laisser guider vers l'intensité</strong>.
+                    </p>
+
+                    <ul class="features-list">
+                        <li>
+                            <div>
+                                <strong>Action ou Vérité Progressif :</strong>
+                                3 niveaux de chaleur, du rire complice à l'audace totale.
+                                Vous choisissez jusqu'où aller.
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <strong>50 Jeux de Couple Explosifs :</strong>
+                                Des défis sensoriels, romantiques et excitants qui
+                                réveillent tous vos sens.
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <strong>Messages & Confessions Prêts :</strong>
+                                Les mots exacts pour faire monter la température par SMS,
+                                même en pleine journée.
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <strong>Scénarios Guidés Pas-à-Pas :</strong>
+                                Jeux de rôles discrets et simples pour pimenter
+                                le quotidien sans artifice.
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <strong>Guide Cinéma & Musique du Désir :</strong>
+                                Films avec leur "mode d'emploi émotionnel" pour
+                                créer l'ambiance parfaite.
+                            </div>
+                        </li>
+                    </ul>
+
+                    <button class="btn-secondary" onclick="scrollToOffer()">
+                        <span>Découvrir le sommaire complet</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         💬 CITATION ÉMOTIONNELLE
+    ======================================== -->
+    <section class="quote-section">
+        <div class="quote-content reveal">
+            <blockquote>
+                "Le sexe ne meurt pas par manque de temps... mais par manque d'envie.
+                Ce livre ne vous dira pas quoi ressentir.
+                Il va créer les conditions pour que quelque chose se passe."
+            </blockquote>
+            <p class="quote-author">— Extrait de l'Introduction</p>
+        </div>
+    </section>
+
+    <!-- ========================================
+         🎁 SECTION BONUS
+    ======================================== -->
+    <section class="bonus-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Bonus Exclusifs Inclus</h2>
+                <p>Parce que vous méritez plus qu'un simple PDF</p>
+            </div>
+
+            <div class="bonus-grid">
+                <div class="bonus-card reveal">
+                    <span class="bonus-icon">🎬</span>
+                    <h3>Cinéma du Désir</h3>
+                    <p>
+                        Une sélection de 15 films avec leur "mode d'emploi"
+                        pour créer l'ambiance parfaite selon votre humeur.
+                    </p>
+                </div>
+
+                <div class="bonus-card reveal">
+                    <span class="bonus-icon">💝</span>
+                    <h3>50 Idées de Dates</h3>
+                    <p>
+                        Pour tous les budgets et toutes les envies.
+                        Du romantique classique à l'audace totale.
+                    </p>
+                </div>
+
+                <div class="bonus-card reveal">
+                    <span class="bonus-icon">💌</span>
+                    <h3>Templates Messages</h3>
+                    <p>
+                        Des messages pré-écrits pour créer l'anticipation
+                        et faire monter la température à distance.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         ⭐ TÉMOIGNAGES
+    ======================================== -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Ils ont osé l'expérience</h2>
+                <p>Et ils ne regrettent qu'une chose : ne pas l'avoir fait plus tôt</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">
+                        "On pensait juste rigoler 5 minutes, on a fini par discuter
+                        et jouer jusqu'à 3h du matin. Ça faisait longtemps qu'on ne
+                        s'était pas <strong>regardés comme ça</strong>. Merci vraiment."
+                    </p>
+                    <p class="testimonial-author">— Marc & Sophie, ensemble depuis 7 ans</p>
+                </div>
+
+                <div class="testimonial-card reveal">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">
+                        "Le niveau 2 des Actions ou Vérités est incroyable.
+                        C'est subtil, ça fait monter la pression sans être vulgaire.
+                        Mon copain et moi on a adoré. <strong>On a découvert des trucs
+                            sur l'autre qu'on n'aurait jamais imaginés.</strong>"
+                    </p>
+                    <p class="testimonial-author">— Amélie L., 29 ans</p>
+                </div>
+
+                <div class="testimonial-card reveal">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">
+                        "Franchement, au début je me disais 'encore un truc commercial'.
+                        Mais là... c'est différent. Les scénarios sont bien pensés,
+                        <strong>ça donne vraiment envie de tester.</strong>
+                        Et ça marche. Point."
+                    </p>
+                    <p class="testimonial-author">— David K., 34 ans</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         💰 SECTION PRIX & OFFRE
+    ======================================== -->
+    <section id="offre" class="pricing-section">
+        <div class="container">
+            <div class="pricing-box reveal">
+                <span class="pricing-badge">🔥 Offre Limitée Saint-Valentin</span>
+
+                <div class="pricing-header">
+                    <h2>Pack Complet<br>"Expérience Couple 2026"</h2>
+                    <p class="elegant-text">
+                        Le guide PDF complet + Tous les bonus interactifs
+                    </p>
+                </div>
+
+                <div class="price-display">
+                    <div class="old-price">Prix normal : 10.000 FCFA</div>
+                    <div class="current-price">4500 FCFA</div>
+                    <p class="price-subtext">Soit -55% de réduction immédiate</p>
+                </div>
+
+                <ul class="benefits-list">
+                    <li>Accès immédiat au PDF complet (118 pages premium)</li>
+                    <li>Compatible Smartphone, Tablette & Ordinateur</li>
+                    <li>BONUS : Guide "Cinéma du Désir" (15 films sélectionnés)</li>
+                    <li>BONUS : 50 Idées de Dates pour tous budgets</li>
+                    <li>BONUS : Templates de messages pré-écrits</li>
+                    <li>Mises à jour gratuites à vie</li>
+                </ul>
+
+                <div class="pricing-cta">
+                    <button class="btn-primary" onclick="handlePurchase()">
+                        🔥 OUI, JE VEUX L'EXPÉRIENCE MAINTENANT
+                    </button>
+                </div>
+
+                <div class="countdown-timer">
+                    <p>⏳ Cette offre expire dans <strong id="offer-timer">11:42:18</strong></p>
+                </div>
+
+                <div class="guarantee-section">
+                    <p>
+                        <strong>🔒 Paiement 100% Sécurisé</strong>
+                        (Tous les moyens de paiement disponibles)
+                    </p>
+                    <p>
+                        <strong>✨ Notre Garantie :</strong>
+                        Si vous ne souriez pas dès la page 10,
+                        nous... on sait que vous sourirez. 😉
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         ❓ FAQ
+    ======================================== -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Questions Fréquentes</h2>
+                <p>Tout ce que vous devez savoir avant de plonger</p>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <span>Est-ce que c'est un livre érotique ?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            C'est un <strong>guide pour couples</strong>. Il contient des sections
+                            romantiques, des jeux de communication, mais aussi des sections
+                            "hot" et audacieuses (clairement indiquées par niveaux) pour ceux
+                            qui veulent aller plus loin. Vous choisissez votre intensité.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <span>Comment je reçois le livre ?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            <strong>Immédiatement après le paiement</strong>, vous recevez
+                            un lien de téléchargement par email ET sur la page de confirmation.
+                            Téléchargement instantané, 100% discret.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <span>Est-ce adapté aux nouveaux couples ?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            <strong>Absolument !</strong> C'est génial pour apprendre à se
+                            connaître rapidement en profondeur. Et pour les couples installés,
+                            c'est parfait pour redécouvrir l'autre et sortir de la routine.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <span>Ça marche vraiment ou c'est du marketing ?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            Lisez les témoignages ci-dessus. Ce ne sont pas des acteurs payés.
+                            Ce guide fonctionne parce qu'il <strong>crée les conditions</strong>
+                            pour que quelque chose se passe naturellement. Pas de miracle,
+                            juste de la psychologie bien appliquée et des jeux testés.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <span>Puis-je l'offrir à mon/ma partenaire ?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            C'est même <strong>le cadeau parfait</strong> pour la Saint-Valentin !
+                            Original, intime, et ça montre que vous voulez investir dans
+                            votre relation. Vous pouvez le découvrir ensemble le soir même.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section style="background: var(--burgundy); color: white; padding: 60px 0; text-align: center;">
-        <div class="container">
-            <h3 style="font-style: italic; font-weight: normal; font-size: 1.5rem;">"Le sexe ne meurt pas par manque de
-                temps... mais par manque d'envie. Ce livre ne vous dira pas quoi ressentir. Il va créer les conditions
-                pour que quelque chose se passe."</h3>
-            <p style="margin-top: 20px; font-weight: bold;">— Extrait de l'Introduction</p>
-        </div>
-    </section>
-
-    <section class="testimonials">
-        <div class="container">
-            <h2 style="text-align: center; margin-bottom: 40px;">Ils ont osé l'expérience</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"On pensait juste rigoler 5 minutes, on a fini par discuter et jouer jusqu'à 3h du matin. Ça
-                        faisait longtemps qu'on ne s'était pas regardés comme ça."</p>
-                    <p style="margin-top: 15px; color: #666;">— Marc & Sophie</p>
-                </div>
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"Le niveau 2 des Actions ou Vérités est incroyable. C'est subtil, ça fait monter la pression sans
-                        être vulgaire. Merci pour ce guide !"</p>
-                    <p style="margin-top: 15px; color: #666;">— Amélie L.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="offre" class="offer-section">
-        <div class="container">
-            <div class="price-box">
-                <span class="badge" style="background: var(--burgundy); color: white;">Offre Limitée</span>
-                <h2>Pack Saint-Valentin 2026</h2>
-                <p>Le guide PDF complet + Les bonus interactifs</p>
-
-                <div class="old-price">10.000 FCFA</div>
-                <div class="price-tag">4500 FCFA</div>
-
-                <ul style="text-align: left; margin: 30px 0; color: #ccc;">
-                    <li>✅ Accès immédiat au PDF complet (118 pages)</li>
-                    <li>✅ Compatible Smartphone, Tablette & Ordi</li>
-                    <li>✅ Bonus : Liste de films "Cinéma du Désir"</li>
-                    <li>✅ Bonus : Idées de dates pour tous budgets</li>
-                </ul>
-
-                <a href="#" class="btn" style="width: 100%;">OUI, JE VEUX L'EXPÉRIENCE</a>
-
-                <div class="timer">⏳ Prix valable pour les 50 prochains téléchargements</div>
-
-                <div style="margin-top: 20px; font-size: 0.8rem; color: #666;">
-                    <p>Paiement 100% Sécurisé (Mobile Money / Carte)</p>
-                    <p>Garantie : Si vous ne souriez pas dès la page 5, nous... on sait que vous sourirez.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="faq">
-        <div class="container">
-            <h2 style="text-align: center; margin-bottom: 40px;">Questions Fréquentes</h2>
-
-            <div class="faq-item" onclick="this.classList.toggle('active')">
-                <div class="faq-question">Est-ce que c'est un livre érotique ? <span>+</span></div>
-                <div class="faq-answer">C'est un guide pour couples. Il contient des sections romantiques, des jeux de
-                    communication, mais aussi des sections "hot" et audacieuses (clairement indiquées) pour ceux qui
-                    veulent aller plus loin.</div>
-            </div>
-
-            <div class="faq-item" onclick="this.classList.toggle('active')">
-                <div class="faq-question">Comment je reçois le livre ? <span>+</span></div>
-                <div class="faq-answer">Immédiatement après le paiement, vous recevez un lien de téléchargement par
-                    email et sur la page de confirmation.</div>
-            </div>
-
-            <div class="faq-item" onclick="this.classList.toggle('active')">
-                <div class="faq-question">Est-ce adapté aux nouveaux couples ? <span>+</span></div>
-                <div class="faq-answer">Absolument ! C'est génial pour apprendre à se connaître rapidement en
-                    profondeur. Et pour les couples installés, c'est parfait pour redécouvrir l'autre.</div>
-            </div>
-        </div>
-    </section>
-
+    <!-- ========================================
+         🦶 FOOTER
+    ======================================== -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 E-book Expérience. Tous droits réservés.</p>
-            <p>Contact Support : WhatsApp +229 69473921</p>
-            <p style="margin-top: 10px; font-size: 0.8rem;">Ce site ne fait pas partie du site Facebook ou de Facebook
-                Inc.</p>
+            <p>&copy; 2026 E-book Expérience Couple. Tous droits réservés.</p>
+            <p>Support Client : <a href="https://wa.me/22969473921">WhatsApp +229 69 47 39 21</a></p>
+            <p style="margin-top: 20px; font-size: 0.85rem; opacity: 0.6;">
+                Ce site ne fait pas partie de Facebook, Instagram ou de Meta Inc.<br>
+                Toutes les marques mentionnées appartiennent à leurs propriétaires respectifs.
+            </p>
         </div>
     </footer>
 
+    <!-- ========================================
+         🔥 POPUP EXIT INTENT
+    ======================================== -->
+    <div class="exit-popup" id="exitPopup">
+        <div class="popup-content">
+            <button class="popup-close" onclick="closePopup()">×</button>
+
+            <h3>✋ Attendez !</h3>
+            <p>
+                Vous partez déjà ? <br>
+                Ne laissez pas passer cette chance de <strong>transformer votre couple</strong>.
+            </p>
+
+            <div class="popup-offer">
+                <p style="margin-bottom: 10px; color: var(--text-light);">
+                    Profitez de l'offre spéciale Saint-Valentin
+                </p>
+                <div class="price">4500 FCFA</div>
+                <p style="margin-top: 10px; font-size: 0.9rem; color: var(--smoke-grey);">
+                    au lieu de 10.000 FCFA
+                </p>
+            </div>
+
+            <button class="btn-primary" onclick="handlePurchase()">
+                🔥 J'en profite maintenant
+            </button>
+
+            <p style="margin-top: 20px; font-size: 0.85rem; color: var(--smoke-grey);">
+                Offre valable uniquement pour les 50 prochains téléchargements
+            </p>
+        </div>
+    </div>
+
+    <!-- ========================================
+         💳 MODAL DE CHOIX DE PAIEMENT
+    ======================================== -->
+    <div class="payment-modal" id="paymentModal">
+        <div class="payment-modal-content">
+            <button class="popup-close" onclick="closePaymentModal()">×</button>
+
+            <h3>Choisissez votre mode de paiement</h3>
+            <p>Sélectionnez la méthode qui vous convient le mieux</p>
+
+            <div class="payment-options">
+                <!-- Option 1 : Paiement en ligne -->
+                <div class="payment-option" onclick="payOnline()">
+                    <span class="payment-icon">💳</span>
+                    <h4>Paiement en Ligne</h4>
+                    <p>
+                        Disponible partout dans le monde<br>
+                        Accès immédiat et automatique
+                    </p>
+                    <span class="payment-badge">Instantané</span>
+                </div>
+
+                <!-- Option 2 : WhatsApp -->
+                <div class="payment-option" onclick="payViaWhatsApp()">
+                    <span class="payment-icon">💬</span>
+                    <h4>Via WhatsApp</h4>
+                    <p>
+                        Discutez avec nous<br>
+                        Paiement personnalisé
+                    </p>
+                    <span class="payment-badge">Support Direct</span>
+                </div>
+            </div>
+
+            <div class="payment-note">
+                <strong>🔒 Paiement 100% Sécurisé</strong><br>
+                Vous recevrez votre e-book immédiatement après validation du paiement.
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================
+         🎯 JAVASCRIPT PREMIUM
+    ======================================== -->
     <script>
-        // Petit script pour l'effet "Smooth Scroll"
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+        // ========================================
+        // COUNTDOWN TIMER DYNAMIQUE
+        // Compte jusqu'au 13 février 2026 à 23h59
+        // ========================================
+        function startCountdown() {
+            // Date limite : 13 février 2026 à 23h59
+            const targetTime = new Date('2026-02-13T23:59:00').getTime();
+
+            setInterval(() => {
+                const now = new Date().getTime();
+                const distance = targetTime - now;
+
+                // Calcul des jours, heures, minutes, secondes
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                // Si plus de 24h restantes, on affiche les jours
+                if (days > 0) {
+                    document.getElementById('hours').textContent = String(days);
+                    document.getElementById('minutes').textContent = String(hours).padStart(2, '0');
+                    document.getElementById('seconds').textContent = String(minutes).padStart(2, '0');
+
+                    // Changer les labels
+                    document.querySelectorAll('.timer-label')[0].textContent = 'Jours';
+                    document.querySelectorAll('.timer-label')[1].textContent = 'Heures';
+                    document.querySelectorAll('.timer-label')[2].textContent = 'Minutes';
+                } else {
+                    // Moins de 24h : affichage classique H:M:S
+                    document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+                    document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+                    document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+                }
+
+                // Timer dans section prix
+                if (days > 0) {
+                    document.getElementById('offer-timer').textContent =
+                        `${days} jour${days > 1 ? 's' : ''} ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+                } else {
+                    document.getElementById('offer-timer').textContent =
+                        `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+                }
+
+                // Si le timer est terminé
+                if (distance < 0) {
+                    document.getElementById('hours').textContent = '00';
+                    document.getElementById('minutes').textContent = '00';
+                    document.getElementById('seconds').textContent = '00';
+                    document.getElementById('offer-timer').textContent = 'Offre expirée';
+                }
+            }, 1000);
+        }
+
+        startCountdown();
+
+        // ========================================
+        // SPOTS REMAINING ANIMATION
+        // Système de rareté : affiche un nombre décroissant de places
+        // ========================================
+
+        // COMMENT ÇA FONCTIONNE :
+        // 1. On commence avec 50 places (configurable)
+        // 2. Le nombre diminue aléatoirement toutes les X secondes
+        // 3. La diminution ralentit quand il reste peu de places
+        // 4. Le nombre est sauvegardé dans le localStorage du navigateur
+        //    pour rester cohérent si l'utilisateur revient sur la page
+
+        // Configuration
+        const INITIAL_SPOTS = 50;        // Nombre de départ
+        const MIN_SPOTS = 5;             // Ne descend jamais en dessous
+        const UPDATE_INTERVAL = 12000;   // Mise à jour toutes les 12 secondes
+
+        // Récupérer le nombre actuel ou initialiser
+        let spotsRemaining = localStorage.getItem('spotsRemaining')
+            ? parseInt(localStorage.getItem('spotsRemaining'))
+            : INITIAL_SPOTS;
+
+        // Afficher le nombre initial
+        document.getElementById('spots-remaining').textContent = spotsRemaining;
+
+        // Fonction pour décrémenter les places
+        function updateSpots() {
+            // Probabilité de diminution basée sur le nombre restant
+            // Plus il y a de places, plus la probabilité est élevée
+            const probability = spotsRemaining > 30 ? 0.7 :
+                spotsRemaining > 20 ? 0.5 :
+                    spotsRemaining > 10 ? 0.3 : 0.2;
+
+            if (spotsRemaining > MIN_SPOTS && Math.random() < probability) {
+                spotsRemaining--;
+
+                // Sauvegarder dans le localStorage
+                localStorage.setItem('spotsRemaining', spotsRemaining);
+
+                // Afficher le nouveau nombre
+                document.getElementById('spots-remaining').textContent = spotsRemaining;
+
+                // Effet visuel de flash
+                const el = document.getElementById('spots-remaining');
+                el.style.color = 'var(--champagne-gold)';
+                el.style.transform = 'scale(1.2)';
+                el.style.fontWeight = '900';
+
+                setTimeout(() => {
+                    el.style.color = '';
+                    el.style.transform = '';
+                    el.style.fontWeight = '';
+                }, 600);
+
+                // Si on atteint un seuil critique, changer le message
+                if (spotsRemaining <= 10) {
+                    document.querySelector('.urgency-text strong:last-child').style.color = '#ff4444';
+                    document.querySelector('.urgency-text strong:last-child').style.animation = 'criticalPulse 1s infinite';
+                }
+            }
+        }
+
+        // Lancer la mise à jour périodique
+        setInterval(updateSpots, UPDATE_INTERVAL);
+
+        // BONUS : Réinitialiser le compteur si l'offre est terminée
+        const offerEndDate = new Date('2026-02-13T23:59:00');
+        if (new Date() > offerEndDate) {
+            localStorage.removeItem('spotsRemaining');
+        }
+
+        // ========================================
+        // SCROLL REVEAL ANIMATIONS
+        // ========================================
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealOnScroll = () => {
+            revealElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Initial check
+
+        // ========================================
+        // SMOOTH SCROLL TO OFFER
+        // ========================================
+        function scrollToOffer() {
+            document.getElementById('offre').scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+        }
+
+        // ========================================
+        // FAQ TOGGLE
+        // ========================================
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const isActive = faqItem.classList.contains('active');
+
+                // Close all other FAQs
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
                 });
+
+                // Toggle current FAQ
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
             });
         });
+
+        // ========================================
+        // EXIT INTENT POPUP
+        // ========================================
+        let popupShown = false;
+
+        document.addEventListener('mouseleave', (e) => {
+            if (e.clientY <= 0 && !popupShown) {
+                document.getElementById('exitPopup').classList.add('active');
+                document.body.style.overflow = 'hidden';
+                popupShown = true;
+            }
+        });
+
+        function closePopup() {
+            document.getElementById('exitPopup').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close popup when clicking outside
+        document.getElementById('exitPopup').addEventListener('click', (e) => {
+            if (e.target.id === 'exitPopup') {
+                closePopup();
+            }
+        });
+
+        // Close payment modal when clicking outside
+        document.getElementById('paymentModal').addEventListener('click', (e) => {
+            if (e.target.id === 'paymentModal') {
+                closePaymentModal();
+            }
+        });
+
+        // ========================================
+        // PURCHASE HANDLER - MODAL DE CHOIX DIRECT
+        // ========================================
+        function handlePurchase() {
+            // Ouvrir directement le modal de choix de paiement
+            document.getElementById('paymentModal').classList.add('active');
+            // Bloquer le scroll du body pour UX mobile optimale
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePaymentModal() {
+            document.getElementById('paymentModal').classList.remove('active');
+            // Réactiver le scroll du body
+            document.body.style.overflow = '';
+        }
+
+        function payOnline() {
+            // 🔥 METTEZ VOTRE LIEN DE PAIEMENT ICI
+            const PAYMENT_LINK = 'https://my.moneyfusion.net/698481d97775377233b2d8ab'; // ⬅️ REMPLACEZ PAR VOTRE LIEN
+
+            // Fermer le modal avec transition fluide
+            closePaymentModal();
+
+            // Petit délai pour que l'animation de fermeture soit visible
+            setTimeout(() => {
+                // Redirection vers la page de paiement
+                window.location.href = PAYMENT_LINK;
+            }, 300);
+        }
+
+        function payViaWhatsApp() {
+            // Message pré-rempli pour WhatsApp
+            const message = encodeURIComponent(
+                '🔥 Bonjour !\n\n' +
+                'Je veux commander l\'E-book Saint-Valentin 2026 au prix de 4500 FCFA.\n\n' +
+                'Merci de me confirmer la procédure de paiement ! 😊'
+            );
+
+            const whatsappLink = `https://wa.me/22969473921?text=${message}`;
+
+            // Ouvrir WhatsApp dans un nouvel onglet
+            window.open(whatsappLink, '_blank');
+
+            // Fermer le modal après un court délai
+            setTimeout(() => {
+                closePaymentModal();
+            }, 500);
+        }
+
+        // ========================================
+        // PERFORMANCE: LAZY LOADING IMAGES
+        // ========================================
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            imageObserver.unobserve(img);
+                        }
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+
+        // ========================================
+        // CONSOLE EASTER EGG
+        // ========================================
+        console.log('%c🔥 E-book Saint-Valentin 2026', 'font-size: 20px; color: #d4af37; font-weight: bold;');
+        console.log('%cPour les développeurs curieux : ce code a été créé avec passion ❤️', 'font-size: 12px; color: #8b1538;');
     </script>
+
 </body>
 
 </html>
