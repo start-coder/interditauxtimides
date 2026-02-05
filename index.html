@@ -9,12 +9,10 @@
     <!-- Fonts Premium -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-        <!-- Favicon local (fichier dans le même dossier) -->
-        <link rel="icon" href="amour.png" type="image/png">
-        <!-- Pour une meilleure compatibilité, ajoute aussi ceci : -->
-        <link rel="shortcut icon" href="amour.png" type="image/png">
-   
+
+    <!-- Favicon local (fichier dans le même dossier) -->
+    <link rel="icon" href="amour.png" type="image/png">
+    <link rel="shortcut icon" href="amour.png" type="image/png">
 
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Playfair+Display:wght@600;700;900&family=DM+Sans:wght@400;500;700&display=swap"
@@ -47,6 +45,11 @@
             box-sizing: border-box;
         }
 
+        html {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
         body {
             background-color: var(--night-black);
             color: var(--text-light);
@@ -54,6 +57,8 @@
             line-height: 1.7;
             overflow-x: hidden;
             position: relative;
+            width: 100%;
+            max-width: 100vw;
         }
 
         /* Effet de grain premium sur toute la page */
@@ -208,6 +213,7 @@
             position: relative;
             padding: 40px 20px;
             overflow: hidden;
+            width: 100%;
         }
 
         /* Background animé avec gradient */
@@ -273,8 +279,10 @@
             position: relative;
             z-index: 10;
             max-width: 950px;
+            width: 100%;
             text-align: center;
             animation: heroFadeIn 1.2s cubic-bezier(0.23, 1, 0.320, 1);
+            padding: 0 15px;
         }
 
         @keyframes heroFadeIn {
@@ -324,6 +332,7 @@
             margin-bottom: 25px;
             color: var(--pearl-white);
             line-height: 1.1;
+            word-wrap: break-word;
         }
 
         .hero h1 .highlight {
@@ -367,6 +376,7 @@
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            word-wrap: break-word;
         }
 
         .hero-cta-group {
@@ -384,6 +394,7 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
+            flex-wrap: wrap;
         }
 
         .hero-trust::before {
@@ -398,7 +409,7 @@
             background: linear-gradient(135deg, #1a0508, #2a0a0f);
             border-top: 1px solid rgba(139, 21, 56, 0.3);
             border-bottom: 1px solid rgba(139, 21, 56, 0.3);
-            padding: 20px;
+            padding: 20px 10px;
             text-align: center;
             position: sticky;
             top: 0;
@@ -406,6 +417,8 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
             animation: urgencySlideDown 0.6s ease-out;
             backdrop-filter: blur(10px);
+            width: 100%;
+            overflow: hidden;
         }
 
         @keyframes urgencySlideDown {
@@ -424,7 +437,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 30px;
+            gap: 20px;
             flex-wrap: wrap;
             max-width: 1200px;
             margin: 0 auto;
@@ -432,8 +445,10 @@
 
         .urgency-timer {
             display: flex;
-            gap: 15px;
+            gap: 10px;
             align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .timer-unit {
@@ -496,6 +511,8 @@
             padding: 120px 20px;
             background: linear-gradient(180deg, var(--night-black) 0%, var(--deep-charcoal) 100%);
             position: relative;
+            width: 100%;
+            overflow: hidden;
         }
 
         .problem-section::before {
@@ -513,6 +530,7 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+            width: 100%;
         }
 
         .section-header {
@@ -524,6 +542,7 @@
             font-size: clamp(2rem, 5vw, 3.5rem);
             margin-bottom: 20px;
             color: var(--pearl-white);
+            word-wrap: break-word;
         }
 
         .section-header p {
@@ -533,13 +552,15 @@
             max-width: 700px;
             margin: 0 auto;
             line-height: 1.7;
+            word-wrap: break-word;
         }
 
         .problem-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 40px;
             margin-top: 60px;
+            width: 100%;
         }
 
         .problem-card {
@@ -551,6 +572,7 @@
             transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
             position: relative;
             overflow: hidden;
+            width: 100%;
         }
 
         .problem-card::before {
@@ -592,11 +614,13 @@
             font-size: 1.5rem;
             margin-bottom: 15px;
             color: var(--champagne-gold);
+            word-wrap: break-word;
         }
 
         .problem-card p {
             color: var(--text-light);
             line-height: 1.6;
+            word-wrap: break-word;
         }
 
         /* ========================================
@@ -606,6 +630,8 @@
             padding: 120px 20px;
             background: var(--night-black);
             position: relative;
+            width: 100%;
+            overflow: hidden;
         }
 
         .solution-flex {
@@ -614,15 +640,18 @@
             gap: 80px;
             align-items: center;
             margin-bottom: 80px;
+            width: 100%;
         }
 
         .solution-visual {
             position: relative;
+            width: 100%;
         }
 
         .book-mockup-container {
             position: relative;
             perspective: 1500px;
+            width: 100%;
         }
 
         .book-mockup {
@@ -671,10 +700,15 @@
             }
         }
 
+        .solution-content {
+            width: 100%;
+        }
+
         .solution-content h2 {
             font-size: clamp(2rem, 4vw, 3rem);
             margin-bottom: 25px;
             line-height: 1.2;
+            word-wrap: break-word;
         }
 
         .solution-content p {
@@ -682,11 +716,13 @@
             color: var(--text-light);
             margin-bottom: 30px;
             line-height: 1.7;
+            word-wrap: break-word;
         }
 
         .features-list {
             list-style: none;
             margin-bottom: 40px;
+            width: 100%;
         }
 
         .features-list li {
@@ -697,6 +733,7 @@
             align-items: flex-start;
             gap: 15px;
             transition: all 0.3s;
+            word-wrap: break-word;
         }
 
         .features-list li:hover {
@@ -725,6 +762,7 @@
             background: linear-gradient(135deg, var(--burgundy-passion), #6b1129);
             position: relative;
             overflow: hidden;
+            width: 100%;
         }
 
         .quote-section::before {
@@ -744,6 +782,8 @@
             text-align: center;
             position: relative;
             z-index: 2;
+            width: 100%;
+            padding: 0 15px;
         }
 
         .quote-content blockquote {
@@ -754,6 +794,7 @@
             color: white;
             line-height: 1.6;
             margin-bottom: 25px;
+            word-wrap: break-word;
         }
 
         .quote-author {
@@ -771,13 +812,16 @@
         .testimonials-section {
             padding: 120px 20px;
             background: var(--deep-charcoal);
+            width: 100%;
+            overflow: hidden;
         }
 
         .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-top: 60px;
+            width: 100%;
         }
 
         .testimonial-card {
@@ -787,6 +831,7 @@
             padding: 35px 30px;
             transition: all 0.4s;
             position: relative;
+            width: 100%;
         }
 
         .testimonial-card::before {
@@ -820,6 +865,7 @@
             margin-bottom: 20px;
             position: relative;
             z-index: 2;
+            word-wrap: break-word;
         }
 
         .testimonial-author {
@@ -837,6 +883,8 @@
                 radial-gradient(circle at top, rgba(139, 21, 56, 0.15), transparent 60%),
                 var(--night-black);
             position: relative;
+            width: 100%;
+            overflow: hidden;
         }
 
         .pricing-box {
@@ -851,6 +899,7 @@
                 0 30px 80px rgba(0, 0, 0, 0.5),
                 inset 0 1px 0 rgba(255, 255, 255, 0.05);
             text-align: center;
+            width: 100%;
         }
 
         .pricing-badge {
@@ -867,11 +916,13 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             box-shadow: 0 4px 15px rgba(139, 21, 56, 0.5);
+            white-space: nowrap;
         }
 
         .pricing-header h2 {
             font-size: clamp(1.8rem, 4vw, 2.5rem);
             margin-bottom: 15px;
+            word-wrap: break-word;
         }
 
         .pricing-header p {
@@ -879,6 +930,7 @@
             font-size: 1.2rem;
             color: var(--text-light);
             margin-bottom: 35px;
+            word-wrap: break-word;
         }
 
         .price-display {
@@ -900,6 +952,7 @@
             line-height: 1;
             text-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
             margin-bottom: 10px;
+            word-wrap: break-word;
         }
 
         .price-subtext {
@@ -914,6 +967,7 @@
             background: rgba(255, 255, 255, 0.02);
             padding: 30px;
             border-radius: 15px;
+            width: 100%;
         }
 
         .benefits-list li {
@@ -923,6 +977,7 @@
             align-items: center;
             gap: 12px;
             color: var(--text-light);
+            word-wrap: break-word;
         }
 
         .benefits-list li::before {
@@ -941,6 +996,7 @@
 
         .pricing-cta {
             margin: 30px 0;
+            width: 100%;
         }
 
         .pricing-cta .btn-primary {
@@ -975,6 +1031,7 @@
             color: var(--burgundy-glow);
             font-weight: 700;
             margin: 0;
+            word-wrap: break-word;
         }
 
         .guarantee-section {
@@ -987,6 +1044,7 @@
             font-size: 0.95rem;
             color: var(--smoke-grey);
             line-height: 1.6;
+            word-wrap: break-word;
         }
 
         .guarantee-section strong {
@@ -999,11 +1057,14 @@
         .faq-section {
             padding: 120px 20px;
             background: var(--deep-charcoal);
+            width: 100%;
+            overflow: hidden;
         }
 
         .faq-container {
             max-width: 900px;
             margin: 60px auto 0;
+            width: 100%;
         }
 
         .faq-item {
@@ -1013,6 +1074,7 @@
             margin-bottom: 20px;
             overflow: hidden;
             transition: all 0.3s;
+            width: 100%;
         }
 
         .faq-item:hover {
@@ -1029,6 +1091,7 @@
             font-weight: 600;
             color: var(--pearl-white);
             transition: all 0.3s;
+            word-wrap: break-word;
         }
 
         .faq-question:hover {
@@ -1046,6 +1109,7 @@
             font-size: 1.5rem;
             color: var(--champagne-gold);
             transition: all 0.3s;
+            flex-shrink: 0;
         }
 
         .faq-item.active .faq-toggle {
@@ -1069,6 +1133,7 @@
         .faq-answer p {
             color: var(--text-light);
             line-height: 1.7;
+            word-wrap: break-word;
         }
 
         /* ========================================
@@ -1077,6 +1142,8 @@
         .bonus-section {
             padding: 100px 20px;
             background: linear-gradient(135deg, #1a0508, var(--night-black));
+            width: 100%;
+            overflow: hidden;
         }
 
         .bonus-grid {
@@ -1084,6 +1151,7 @@
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
             margin-top: 60px;
+            width: 100%;
         }
 
         .bonus-card {
@@ -1093,6 +1161,7 @@
             padding: 30px;
             text-align: center;
             transition: all 0.4s;
+            width: 100%;
         }
 
         .bonus-card:hover {
@@ -1111,11 +1180,13 @@
             font-size: 1.3rem;
             color: var(--champagne-gold);
             margin-bottom: 15px;
+            word-wrap: break-word;
         }
 
         .bonus-card p {
             color: var(--text-light);
             line-height: 1.6;
+            word-wrap: break-word;
         }
 
         /* ========================================
@@ -1126,17 +1197,21 @@
             background: var(--night-black);
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             text-align: center;
+            width: 100%;
+            overflow: hidden;
         }
 
         footer p {
             color: var(--smoke-grey);
             font-size: 0.9rem;
             margin-bottom: 10px;
+            word-wrap: break-word;
         }
 
         footer a {
             color: var(--champagne-gold);
             transition: color 0.3s;
+            word-break: break-all;
         }
 
         footer a:hover {
@@ -1187,6 +1262,7 @@
             font-size: 2.2rem;
             margin-bottom: 15px;
             color: var(--pearl-white);
+            word-wrap: break-word;
         }
 
         .payment-modal-content>p {
@@ -1194,6 +1270,7 @@
             font-size: 1.1rem;
             color: var(--text-light);
             margin-bottom: 40px;
+            word-wrap: break-word;
         }
 
         .payment-options {
@@ -1201,6 +1278,7 @@
             grid-template-columns: 1fr 1fr;
             gap: 20px;
             margin-bottom: 30px;
+            width: 100%;
         }
 
         .payment-option {
@@ -1212,6 +1290,7 @@
             transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
             position: relative;
             overflow: hidden;
+            width: 100%;
         }
 
         .payment-option::before {
@@ -1250,6 +1329,7 @@
             color: var(--champagne-gold);
             position: relative;
             z-index: 2;
+            word-wrap: break-word;
         }
 
         .payment-option p {
@@ -1258,6 +1338,7 @@
             line-height: 1.5;
             position: relative;
             z-index: 2;
+            word-wrap: break-word;
         }
 
         .payment-badge {
@@ -1284,6 +1365,7 @@
             font-size: 0.9rem;
             color: var(--text-light);
             line-height: 1.6;
+            word-wrap: break-word;
         }
 
         .payment-note strong {
@@ -1374,6 +1456,7 @@
             font-size: 2.5rem;
             margin-bottom: 20px;
             color: var(--champagne-gold);
+            word-wrap: break-word;
         }
 
         .popup-content p {
@@ -1381,6 +1464,7 @@
             margin-bottom: 30px;
             color: var(--text-light);
             line-height: 1.6;
+            word-wrap: break-word;
         }
 
         .popup-offer {
@@ -1396,6 +1480,7 @@
             font-weight: 900;
             color: var(--champagne-gold);
             font-family: var(--font-display);
+            word-wrap: break-word;
         }
 
         /* ========================================
@@ -1468,8 +1553,9 @@
 
             .btn-primary {
                 width: 100%;
-                padding: 18px 30px;
-                font-size: 0.95rem;
+                padding: 18px 20px;
+                font-size: 0.85rem;
+                letter-spacing: 0.5px;
             }
 
             .btn-secondary {
@@ -1612,8 +1698,9 @@
 
             .pricing-cta .btn-primary {
                 width: 100%;
-                font-size: 1rem;
-                padding: 20px;
+                font-size: 0.9rem;
+                padding: 20px 15px;
+                letter-spacing: 0.5px;
             }
 
             .countdown-timer {
@@ -1626,16 +1713,16 @@
 
             /* FAQ */
             .faq-question {
-                padding: 20px;
+                padding: 20px 15px;
                 font-size: 1rem;
             }
 
             .faq-answer {
-                padding: 0 20px;
+                padding: 0 15px;
             }
 
             .faq-item.active .faq-answer {
-                padding: 0 20px 20px 20px;
+                padding: 0 15px 20px 15px;
             }
 
             /* Payment Modal */
@@ -1727,8 +1814,9 @@
             }
 
             .btn-primary {
-                font-size: 0.9rem;
-                padding: 16px 25px;
+                font-size: 0.8rem;
+                padding: 16px 20px;
+                letter-spacing: 0.5px;
             }
 
             .section-header h2 {
@@ -1754,6 +1842,14 @@
 
             .timer-number {
                 font-size: 1.3rem;
+            }
+
+            .urgency-content {
+                gap: 10px;
+            }
+
+            .container {
+                padding: 0 15px;
             }
         }
 
@@ -1853,8 +1949,7 @@
                 </div>
             </div>
             <div class="urgency-text">
-                <strong>Offre limitée :</strong> Plus que <strong id="spots-remaining">23 places</strong> disponibles à
-                ce prix
+                <strong>Offre limitée :</strong> Plus que <strong id="spots-remaining">23 places</strong> disponibles
             </div>
         </div>
     </div>
@@ -2401,47 +2496,27 @@
 
         // ========================================
         // SPOTS REMAINING ANIMATION
-        // Système de rareté : affiche un nombre décroissant de places
         // ========================================
+        const INITIAL_SPOTS = 50;
+        const MIN_SPOTS = 5;
+        const UPDATE_INTERVAL = 12000;
 
-        // COMMENT ÇA FONCTIONNE :
-        // 1. On commence avec 50 places (configurable)
-        // 2. Le nombre diminue aléatoirement toutes les X secondes
-        // 3. La diminution ralentit quand il reste peu de places
-        // 4. Le nombre est sauvegardé dans le localStorage du navigateur
-        //    pour rester cohérent si l'utilisateur revient sur la page
-
-        // Configuration
-        const INITIAL_SPOTS = 50;        // Nombre de départ
-        const MIN_SPOTS = 5;             // Ne descend jamais en dessous
-        const UPDATE_INTERVAL = 12000;   // Mise à jour toutes les 12 secondes
-
-        // Récupérer le nombre actuel ou initialiser
         let spotsRemaining = localStorage.getItem('spotsRemaining')
             ? parseInt(localStorage.getItem('spotsRemaining'))
             : INITIAL_SPOTS;
 
-        // Afficher le nombre initial
         document.getElementById('spots-remaining').textContent = spotsRemaining;
 
-        // Fonction pour décrémenter les places
         function updateSpots() {
-            // Probabilité de diminution basée sur le nombre restant
-            // Plus il y a de places, plus la probabilité est élevée
             const probability = spotsRemaining > 30 ? 0.7 :
                 spotsRemaining > 20 ? 0.5 :
                     spotsRemaining > 10 ? 0.3 : 0.2;
 
             if (spotsRemaining > MIN_SPOTS && Math.random() < probability) {
                 spotsRemaining--;
-
-                // Sauvegarder dans le localStorage
                 localStorage.setItem('spotsRemaining', spotsRemaining);
-
-                // Afficher le nouveau nombre
                 document.getElementById('spots-remaining').textContent = spotsRemaining;
 
-                // Effet visuel de flash
                 const el = document.getElementById('spots-remaining');
                 el.style.color = 'var(--champagne-gold)';
                 el.style.transform = 'scale(1.2)';
@@ -2453,7 +2528,6 @@
                     el.style.fontWeight = '';
                 }, 600);
 
-                // Si on atteint un seuil critique, changer le message
                 if (spotsRemaining <= 10) {
                     document.querySelector('.urgency-text strong:last-child').style.color = '#ff4444';
                     document.querySelector('.urgency-text strong:last-child').style.animation = 'criticalPulse 1s infinite';
@@ -2461,10 +2535,8 @@
             }
         }
 
-        // Lancer la mise à jour périodique
         setInterval(updateSpots, UPDATE_INTERVAL);
 
-        // BONUS : Réinitialiser le compteur si l'offre est terminée
         const offerEndDate = new Date('2026-02-13T23:59:00');
         if (new Date() > offerEndDate) {
             localStorage.removeItem('spotsRemaining');
@@ -2487,7 +2559,7 @@
         };
 
         window.addEventListener('scroll', revealOnScroll);
-        revealOnScroll(); // Initial check
+        revealOnScroll();
 
         // ========================================
         // SMOOTH SCROLL TO OFFER
@@ -2507,12 +2579,10 @@
                 const faqItem = question.parentElement;
                 const isActive = faqItem.classList.contains('active');
 
-                // Close all other FAQs
                 document.querySelectorAll('.faq-item').forEach(item => {
                     item.classList.remove('active');
                 });
 
-                // Toggle current FAQ
                 if (!isActive) {
                     faqItem.classList.add('active');
                 }
@@ -2537,14 +2607,12 @@
             document.body.style.overflow = '';
         }
 
-        // Close popup when clicking outside
         document.getElementById('exitPopup').addEventListener('click', (e) => {
             if (e.target.id === 'exitPopup') {
                 closePopup();
             }
         });
 
-        // Close payment modal when clicking outside
         document.getElementById('paymentModal').addEventListener('click', (e) => {
             if (e.target.id === 'paymentModal') {
                 closePaymentModal();
@@ -2552,56 +2620,43 @@
         });
 
         // ========================================
-        // PURCHASE HANDLER - MODAL DE CHOIX DIRECT
+        // PURCHASE HANDLER
         // ========================================
         function handlePurchase() {
-            // Ouvrir directement le modal de choix de paiement
             document.getElementById('paymentModal').classList.add('active');
-            // Bloquer le scroll du body pour UX mobile optimale
             document.body.style.overflow = 'hidden';
         }
 
         function closePaymentModal() {
             document.getElementById('paymentModal').classList.remove('active');
-            // Réactiver le scroll du body
             document.body.style.overflow = '';
         }
 
         function payOnline() {
-            // 🔥 METTEZ VOTRE LIEN DE PAIEMENT ICI
-            const PAYMENT_LINK = 'https://my.moneyfusion.net/698481d97775377233b2d8ab'; // ⬅️ REMPLACEZ PAR VOTRE LIEN
-
-            // Fermer le modal avec transition fluide
+            const PAYMENT_LINK = 'https://my.moneyfusion.net/698481d97775377233b2d8ab';
             closePaymentModal();
-
-            // Petit délai pour que l'animation de fermeture soit visible
             setTimeout(() => {
-                // Redirection vers la page de paiement
                 window.location.href = PAYMENT_LINK;
             }, 300);
         }
 
         function payViaWhatsApp() {
-            // Message pré-rempli pour WhatsApp
             const message = encodeURIComponent(
                 '🔥 Bonjour !\n\n' +
-                'Je veux commander l\'E-book Saint-Valentin 2026 au prix de 4500 FCFA.\n\n' +
+                'Je veux commander l\'E-book "Interdit aux Couples Timides" au prix de 4500 FCFA.\n\n' +
                 'Merci de me confirmer la procédure de paiement ! 😊'
             );
 
             const whatsappLink = `https://wa.me/22969473921?text=${message}`;
-
-            // Ouvrir WhatsApp dans un nouvel onglet
             window.open(whatsappLink, '_blank');
 
-            // Fermer le modal après un court délai
             setTimeout(() => {
                 closePaymentModal();
             }, 500);
         }
 
         // ========================================
-        // PERFORMANCE: LAZY LOADING IMAGES
+        // LAZY LOADING IMAGES
         // ========================================
         if ('IntersectionObserver' in window) {
             const imageObserver = new IntersectionObserver((entries) => {
@@ -2621,9 +2676,6 @@
             });
         }
 
-        // ========================================
-        // CONSOLE EASTER EGG
-        // ========================================
         console.log('%c🔥 E-book Saint-Valentin 2026', 'font-size: 20px; color: #d4af37; font-weight: bold;');
         console.log('%cPour les développeurs curieux : ce code a été créé avec passion ❤️', 'font-size: 12px; color: #8b1538;');
     </script>
