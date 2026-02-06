@@ -214,6 +214,8 @@
             padding: 40px 20px;
             overflow: hidden;
             width: 100%;
+            margin-top: 100px;
+            /* Compense la hauteur de la barre fixe */
         }
 
         /* Background animé avec gradient */
@@ -411,9 +413,11 @@
             border-bottom: 1px solid rgba(139, 21, 56, 0.3);
             padding: 20px 10px;
             text-align: center;
-            position: sticky;
+            position: fixed;
             top: 0;
-            z-index: 100;
+            left: 0;
+            right: 0;
+            z-index: 1000;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
             animation: urgencySlideDown 0.6s ease-out;
             backdrop-filter: blur(10px);
@@ -1526,6 +1530,8 @@
             .hero {
                 min-height: 90vh;
                 padding: 60px 15px 40px 15px;
+                margin-top: 90px;
+                /* Compense la barre sur mobile */
             }
 
             .hero h1 {
@@ -2643,7 +2649,7 @@
         function payViaWhatsApp() {
             const message = encodeURIComponent(
                 '🔥 Bonjour !\n\n' +
-                'Je veux commander l\'E-book "Interdit aux Couples Timides" au prix de 4500 FCFA.\n\n' +
+                'Je veux commander l\'E-book Saint-Valentin 2026 au prix de 4500 FCFA.\n\n' +
                 'Merci de me confirmer la procédure de paiement ! 😊'
             );
 
