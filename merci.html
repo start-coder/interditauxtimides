@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merci pour votre achat !</title>
+
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+
+        fbq('init', '2077894939720682'); // ⚠️ MÊME ID que sur la page principale
+        fbq('track', 'PageView');
+
+        // 🔥 ÉVÉNEMENT PURCHASE (CONVERSION COMPLÈTE)
+        fbq('track', 'Purchase', {
+            content_name: 'E-book Saint-Valentin 2026',
+            content_ids: ['ebook-stvalentin-2026'],
+            content_type: 'product',
+            value: 4500,
+            currency: 'XOF'
+        });
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=2077894939720682&ev=PageView&noscript=1" />
+    </noscript>
+    <!-- End Meta Pixel Code -->
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0a0a0a, #141414);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 60px 40px;
+            border-radius: 20px;
+            border: 2px solid #d4af37;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+        }
+
+        .success-icon {
+            font-size: 80px;
+            margin-bottom: 30px;
+            animation: bounce 1s ease;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #d4af37;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #d4d4d4;
+        }
+
+        .highlight {
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+        .btn-download {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 20px 50px;
+            background: linear-gradient(135deg, #8b1538, #a91d47);
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(139, 21, 56, 0.4);
+        }
+
+        .btn-download:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(139, 21, 56, 0.6);
+        }
+
+        .info-box {
+            margin-top: 40px;
+            padding: 25px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .info-box p {
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="success-icon">🎉</div>
+
+        <h1>Félicitations !</h1>
+
+        <p>Votre paiement a été <span class="highlight">confirmé avec succès</span>.</p>
+
+        <p>Vous allez recevoir votre e-book <span class="highlight">"Interdit aux Couples Timides"</span> par email dans
+            les <strong>5 prochaines minutes</strong>.</p>
+
+        <a href="https://pdfhost.io/v/2u7GLyqz87_Interdit_aux_Couples_Timides" class="btn-download" download>
+            📥 Télécharger Maintenant
+        </a>
+
+        <div class="info-box">
+            <p><strong>📧 Vérifiez votre boîte email :</strong></p>
+            <p>Si vous ne recevez pas l'email, vérifiez vos SPAMS.</p>
+            <p><strong>💬 Besoin d'aide ?</strong></p>
+            <p>Contactez-nous sur WhatsApp : <a href="https://wa.me/22969473921" style="color: #d4af37;">+229 69 47 39
+                    21</a></p>
+        </div>
+    </div>
+</body>
+
+</html>
