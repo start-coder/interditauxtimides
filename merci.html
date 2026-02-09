@@ -7,6 +7,7 @@
     <title>Merci pour votre achat !</title>
 
     <!-- Meta Pixel Code -->
+
     <script>
         !function (f, b, e, v, n, t, s) {
             if (f.fbq) return; n = f.fbq = function () {
@@ -20,18 +21,69 @@
         }(window, document, 'script',
             'https://connect.facebook.net/en_US/fbevents.js');
 
-        fbq('init', '2077894939720682'); // ⚠️ MÊME ID que sur la page principale
+        fbq('init', '2077894939720682');
         fbq('track', 'PageView');
 
-        // 🔥 ÉVÉNEMENT PURCHASE (CONVERSION COMPLÈTE)
-        fbq('track', 'Purchase', {
-            content_name: 'E-book Saint-Valentin 2026',
-            content_ids: ['ebook-stvalentin-2026'],
-            content_type: 'product',
-            value: 4500,
-            currency: 'XOF'
-        });
+        // Fonction de hashage
+        async function hashData(data) {
+            if (!data) return '';
+            const normalized = data.toLowerCase().trim();
+            const encoder = new TextEncoder();
+            const dataBuffer = encoder.encode(normalized);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', dataBuffer);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+
+        // Récupérer les données depuis sessionStorage ou URL
+        async function trackPurchase() {
+            const email = sessionStorage.getItem('userEmail') || getUrlParameter('email');
+            const phone = sessionStorage.getItem('userPhone') || getUrlParameter('phone');
+            const name = sessionStorage.getItem('userName') || getUrlParameter('name');
+
+            let userData = {};
+
+            if (email && phone) {
+                const hashedEmail = await hashData(email);
+                const hashedPhone = await hashData(phone);
+
+                userData = {
+                    em: hashedEmail,
+                    ph: hashedPhone
+                };
+
+                if (name) {
+                    const nameParts = name.split(' ');
+                    const firstName = nameParts[0];
+                    const lastName = nameParts.slice(1).join(' ');
+
+                    if (firstName) userData.fn = await hashData(firstName);
+                    if (lastName) userData.ln = await hashData(lastName);
+                }
+            }
+
+            // 🔥 ÉVÉNEMENT PURCHASE AVEC DONNÉES UTILISATEUR
+            fbq('track', 'Purchase', {
+                content_name: 'E-book Saint-Valentin 2026',
+                content_ids: ['ebook-stvalentin-2026'],
+                content_type: 'product',
+                value: 4500,
+                currency: 'XOF'
+            }, userData);
+
+            console.log('✅ Purchase tracked avec Event Match Quality amélioré');
+        }
+
+        // Fonction utilitaire pour lire les paramètres URL
+        function getUrlParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Exécuter le tracking
+        trackPurchase();
     </script>
+
     <noscript>
         <img height="1" width="1" style="display:none"
             src="https://www.facebook.com/tr?id=2077894939720682&ev=PageView&noscript=1" />
