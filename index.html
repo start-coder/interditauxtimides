@@ -1956,6 +1956,158 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+
+        /* ========================================
+   📋 MODAL FORMULAIRE PRÉ-COMMANDE
+======================================== */
+.preorder-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 10002; /* Au-dessus du payment modal */
+    animation: popupFadeIn 0.3s ease;
+    backdrop-filter: blur(10px);
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.preorder-modal.active {
+    display: flex;
+}
+
+.preorder-modal-content {
+    background: linear-gradient(135deg, var(--deep-charcoal), var(--night-black));
+    border: 2px solid var(--champagne-gold);
+    border-radius: 25px;
+    padding: 50px 40px;
+    max-width: 550px;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    animation: popupSlideUp 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+    box-shadow: 0 30px 80px rgba(212, 175, 55, 0.3);
+    margin: auto;
+}
+
+.preorder-modal-content h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: var(--champagne-gold);
+}
+
+.preorder-modal-content > p {
+    font-size: 1.05rem;
+    color: var(--text-light);
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.preorder-form {
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--pearl-white);
+    margin-bottom: 8px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: white;
+    transition: all 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--champagne-gold);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1);
+}
+
+.form-group input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.form-group small {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--smoke-grey);
+    margin-top: 5px;
+    font-style: italic;
+}
+
+.privacy-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 25px;
+    padding: 15px;
+    background: rgba(212, 175, 55, 0.05);
+    border-radius: 10px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.privacy-notice input[type="checkbox"] {
+    margin-top: 3px;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.privacy-notice label {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+.btn-submit {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.trust-message {
+    font-size: 0.9rem;
+    color: var(--smoke-grey);
+    margin-top: 20px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .preorder-modal-content {
+        padding: 35px 25px;
+        max-width: 95%;
+    }
+
+    .preorder-modal-content h3 {
+        font-size: 1.6rem;
+    }
+
+    .form-group input {
+        padding: 12px 15px;
+    }
+}
+
     </style>
 
 </head>
@@ -2426,6 +2578,56 @@
         </div>
     </div>
 
+
+    <!-- ========================================
+         📋 MODAL FORMULAIRE PRÉ-COMMANDE
+    ======================================== -->
+    <div class="preorder-modal" id="preorderModal">
+        <div class="preorder-modal-content">
+            <button class="popup-close" onclick="closePreorderModal()">×</button>
+    
+            <h3>✨ Dernière étape avant votre transformation</h3>
+            <p>Entrez vos informations pour recevoir votre e-book instantanément après le paiement</p>
+    
+            <form id="preorderForm" class="preorder-form">
+                <div class="form-group">
+                    <label for="user-email">📧 Votre email</label>
+                    <input type="email" id="user-email" name="email" placeholder="exemple@email.com" required
+                        autocomplete="email">
+                    <small>Nous vous enverrons l'e-book ici (vérifiez bien l'orthographe)</small>
+                </div>
+    
+                <div class="form-group">
+                    <label for="user-phone">📱 Votre numéro WhatsApp</label>
+                    <input type="tel" id="user-phone" name="phone" placeholder="+229 XX XX XX XX" required
+                        autocomplete="tel">
+                    <small>Pour vous envoyer le lien de téléchargement en cas de problème</small>
+                </div>
+    
+                <div class="form-group">
+                    <label for="user-name">👤 Votre prénom (optionnel)</label>
+                    <input type="text" id="user-name" name="name" placeholder="Jean" autocomplete="given-name">
+                </div>
+    
+                <div class="privacy-notice">
+                    <input type="checkbox" id="privacy-accept" required>
+                    <label for="privacy-accept">
+                        J'accepte de recevoir mon e-book et des conseils couple par email.
+                        Vos données sont 100% sécurisées et ne seront jamais partagées.
+                    </label>
+                </div>
+    
+                <button type="submit" class="btn-primary btn-submit">
+                    Continuer vers le paiement 🔥
+                </button>
+            </form>
+    
+            <p class="trust-message">
+                🔒 Vos informations sont cryptées et protégées
+            </p>
+        </div>
+    </div>
+
     <!-- ========================================
          💳 MODAL DE CHOIX DE PAIEMENT
     ======================================== -->
@@ -2655,9 +2857,107 @@
         // ========================================
         // PURCHASE HANDLER
         // ========================================
+       // ========================================
+        // NOUVELLE FONCTION : OUVRIR LE FORMULAIRE PRÉ-COMMANDE
+        // ========================================
         function handlePurchase() {
-            document.getElementById('paymentModal').classList.add('active');
+            // Ouvre le formulaire au lieu du modal de paiement
+            document.getElementById('preorderModal').classList.add('active');
             document.body.style.overflow = 'hidden';
+        }
+
+        function closePreorderModal() {
+            document.getElementById('preorderModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // ========================================
+        // GESTION DU FORMULAIRE PRÉ-COMMANDE
+        // ========================================
+        document.getElementById('preorderForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Récupérer les données du formulaire
+            const email = document.getElementById('user-email').value.trim();
+            const phone = document.getElementById('user-phone').value.trim();
+            const name = document.getElementById('user-name').value.trim();
+
+            // Validation basique
+            if (!email || !phone) {
+                alert('⚠️ Veuillez remplir votre email et téléphone');
+                return;
+            }
+
+            // Validation email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('⚠️ Veuillez entrer un email valide');
+                return;
+            }
+
+            // Stocker les données pour utilisation ultérieure
+            sessionStorage.setItem('userEmail', email);
+            sessionStorage.setItem('userPhone', phone);
+            sessionStorage.setItem('userName', name);
+
+            // 🔥 TRACKING FACEBOOK AVEC DONNÉES UTILISATEUR
+            // Hasher les données sensibles (email, téléphone)
+            const hashedEmail = hashData(email);
+            const hashedPhone = hashData(phone);
+
+            // Parser le prénom et nom si fourni
+            let firstName = '';
+            let lastName = '';
+            if (name) {
+                const nameParts = name.split(' ');
+                firstName = nameParts[0];
+                lastName = nameParts.slice(1).join(' ');
+            }
+
+            // Envoyer l'événement Lead avec données utilisateur
+            fbq('track', 'Lead', {
+                content_name: 'E-book Saint-Valentin 2026',
+                content_category: 'E-book',
+                value: 4500,
+                currency: 'XOF'
+            }, {
+                // Données utilisateur pour améliorer le matching
+                em: hashedEmail,
+                ph: hashedPhone,
+                fn: firstName ? hashData(firstName) : undefined,
+                ln: lastName ? hashData(lastName) : undefined
+            });
+
+            console.log('✅ Lead tracked avec données utilisateur');
+
+            // Fermer le formulaire et ouvrir le modal de choix de paiement
+            closePreorderModal();
+
+            // Petit délai pour la transition
+            setTimeout(() => {
+                document.getElementById('paymentModal').classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }, 300);
+        });
+
+        // ========================================
+        // FONCTION DE HASHAGE SIMPLE (SHA-256)
+        // Facebook exige que les données personnelles soient hashées
+        // ========================================
+        async function hashData(data) {
+            if (!data) return '';
+
+            // Normaliser les données
+            const normalized = data.toLowerCase().trim();
+
+            // Utiliser l'API SubtleCrypto pour hasher
+            const encoder = new TextEncoder();
+            const dataBuffer = encoder.encode(normalized);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', dataBuffer);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+
+            return hashHex;
         }
 
         function closePaymentModal() {
@@ -2665,15 +2965,42 @@
             document.body.style.overflow = '';
         }
 
-        function payOnline() {
-                // 🔥 TRACKING FACEBOOK : Événement InitiateCheckout
+        // ========================================
+            // FONCTION PAIEMENT EN LIGNE (MODIFIÉE)
+            // ========================================
+            async function payOnline() {
+                // Récupérer les données utilisateur stockées
+                const email = sessionStorage.getItem('userEmail');
+                const phone = sessionStorage.getItem('userPhone');
+                const name = sessionStorage.getItem('userName');
+
+                // Hasher les données
+                const hashedEmail = await hashData(email);
+                const hashedPhone = await hashData(phone);
+
+                let firstName = '';
+                let lastName = '';
+                if (name) {
+                    const nameParts = name.split(' ');
+                    firstName = nameParts[0];
+                    lastName = nameParts.slice(1).join(' ');
+                }
+
+                // 🔥 TRACKING FACEBOOK : InitiateCheckout AVEC données utilisateur
                 fbq('track', 'InitiateCheckout', {
                     content_name: 'E-book Saint-Valentin 2026',
                     content_ids: ['ebook-stvalentin-2026'],
                     content_type: 'product',
                     value: 4500,
-                    currency: 'XOF' // Franc CFA
+                    currency: 'XOF'
+                }, {
+                    em: hashedEmail,
+                    ph: hashedPhone,
+                    fn: firstName ? await hashData(firstName) : undefined,
+                    ln: lastName ? await hashData(lastName) : undefined
                 });
+
+                console.log('✅ InitiateCheckout tracked avec données utilisateur');
 
                 const PAYMENT_LINK = 'https://my.moneyfusion.net/698481d97775377233b2d8ab';
                 closePaymentModal();
@@ -2683,20 +3010,52 @@
                 }, 300);
             }
 
-        function payViaWhatsApp() {
-                // 🔥 TRACKING FACEBOOK : Événement InitiateCheckout
+            // ========================================
+            // FONCTION PAIEMENT WHATSAPP (MODIFIÉE)
+            // ========================================
+            async function payViaWhatsApp() {
+                // Récupérer les données utilisateur stockées
+                const email = sessionStorage.getItem('userEmail');
+                const phone = sessionStorage.getItem('userPhone');
+                const name = sessionStorage.getItem('userName');
+
+                // Hasher les données
+                const hashedEmail = await hashData(email);
+                const hashedPhone = await hashData(phone);
+
+                let firstName = '';
+                let lastName = '';
+                if (name) {
+                    const nameParts = name.split(' ');
+                    firstName = nameParts[0];
+                    lastName = nameParts.slice(1).join(' ');
+                }
+
+                // 🔥 TRACKING FACEBOOK : InitiateCheckout AVEC données utilisateur
                 fbq('track', 'InitiateCheckout', {
                     content_name: 'E-book Saint-Valentin 2026',
                     content_ids: ['ebook-stvalentin-2026'],
                     content_type: 'product',
                     value: 4500,
                     currency: 'XOF'
+                }, {
+                    em: hashedEmail,
+                    ph: hashedPhone,
+                    fn: firstName ? await hashData(firstName) : undefined,
+                    ln: lastName ? await hashData(lastName) : undefined
                 });
 
+                console.log('✅ InitiateCheckout tracked avec données utilisateur');
+
+                // Personnaliser le message WhatsApp avec les infos
+                const displayName = name || 'Client';
                 const message = encodeURIComponent(
-                    '🔥 Bonjour !\n\n' +
-                    'Je veux commander l\'E-book Saint-Valentin 2026 au prix de 4500 FCFA.\n\n' +
-                    'Merci de me confirmer la procédure de paiement ! 😊'
+                    `🔥 Bonjour !\n\n` +
+                    `Je suis ${displayName} et je veux commander l'E-book Saint-Valentin 2026.\n\n` +
+                    `📧 Email : ${email}\n` +
+                    `📱 Téléphone : ${phone}\n` +
+                    `💰 Prix : 4500 FCFA\n\n` +
+                    `Merci de me confirmer la procédure de paiement ! 😊`
                 );
 
                 const whatsappLink = `https://wa.me/22969473921?text=${message}`;
@@ -2707,6 +3066,7 @@
                 }, 500);
             }
 
+            
         // ========================================
         // LAZY LOADING IMAGES
         // ========================================
@@ -2751,7 +3111,7 @@
                     }
                 }
             });
-            
+
     </script>
 
 </body>
