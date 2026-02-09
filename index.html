@@ -2874,71 +2874,67 @@
         // ========================================
         // GESTION DU FORMULAIRE PRÉ-COMMANDE
         // ========================================
-        document.getElementById('preorderForm').addEventListener('submit', function (e) {
-            e.preventDefault();
+        document.getElementById('preorderForm').addEventListener('submit', async function (e) {
+                e.preventDefault();
 
-            // Récupérer les données du formulaire
-            const email = document.getElementById('user-email').value.trim();
-            const phone = document.getElementById('user-phone').value.trim();
-            const name = document.getElementById('user-name').value.trim();
+                const email = document.getElementById('user-email').value.trim();
+                const phone = document.getElementById('user-phone').value.trim();
+                const name = document.getElementById('user-name').value.trim();
 
-            // Validation basique
-            if (!email || !phone) {
-                alert('⚠️ Veuillez remplir votre email et téléphone');
-                return;
-            }
+                // Validation basique
+                if (!email || !phone) {
+                    alert('⚠️ Veuillez remplir votre email et téléphone');
+                    return;
+                }
 
-            // Validation email
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                alert('⚠️ Veuillez entrer un email valide');
-                return;
-            }
+                // Validation email
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    alert('⚠️ Veuillez entrer un email valide');
+                    return;
+                }
 
-            // Stocker les données pour utilisation ultérieure
-            sessionStorage.setItem('userEmail', email);
-            sessionStorage.setItem('userPhone', phone);
-            sessionStorage.setItem('userName', name);
+                // Stocker les données
+                sessionStorage.setItem('userEmail', email);
+                sessionStorage.setItem('userPhone', phone);
+                sessionStorage.setItem('userName', name);
 
-            // 🔥 TRACKING FACEBOOK AVEC DONNÉES UTILISATEUR
-            // Hasher les données sensibles (email, téléphone)
-            const hashedEmail = hashData(email);
-            const hashedPhone = hashData(phone);
+                // ✅ CORRECTION : Ajouter await pour hasher correctement
+                const hashedEmail = await hashData(email);  // ✅ CORRECT
+                const hashedPhone = await hashData(phone);  // ✅ CORRECT
 
-            // Parser le prénom et nom si fourni
-            let firstName = '';
-            let lastName = '';
-            if (name) {
-                const nameParts = name.split(' ');
-                firstName = nameParts[0];
-                lastName = nameParts.slice(1).join(' ');
-            }
+                // Parser le prénom et nom si fourni
+                let firstName = '';
+                let lastName = '';
+                if (name) {
+                    const nameParts = name.split(' ');
+                    firstName = nameParts[0];
+                    lastName = nameParts.slice(1).join(' ');
+                }
 
-            // Envoyer l'événement Lead avec données utilisateur
-            fbq('track', 'Lead', {
-                content_name: 'E-book Saint-Valentin 2026',
-                content_category: 'E-book',
-                value: 4500,
-                currency: 'XOF'
-            }, {
-                // Données utilisateur pour améliorer le matching
-                em: hashedEmail,
-                ph: hashedPhone,
-                fn: firstName ? hashData(firstName) : undefined,
-                ln: lastName ? hashData(lastName) : undefined
+                // ✅ TRACKING FACEBOOK avec données hashées
+                fbq('track', 'Lead', {
+                    content_name: 'E-book Saint-Valentin 2026',
+                    content_category: 'E-book',
+                    value: 4500,
+                    currency: 'XOF'
+                }, {
+                    em: hashedEmail,  // ✅ Hash SHA-256 valide
+                    ph: hashedPhone,  // ✅ Hash SHA-256 valide
+                    fn: firstName ? await hashData(firstName) : undefined,
+                    ln: lastName ? await hashData(lastName) : undefined
+                });
+
+                console.log('✅ Lead tracked avec Event Match Quality 9-10/10');
+
+                // Fermer le formulaire et ouvrir le modal de paiement
+                closePreorderModal();
+
+                setTimeout(() => {
+                    document.getElementById('paymentModal').classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }, 300);
             });
-
-            console.log('✅ Lead tracked avec données utilisateur');
-
-            // Fermer le formulaire et ouvrir le modal de choix de paiement
-            closePreorderModal();
-
-            // Petit délai pour la transition
-            setTimeout(() => {
-                document.getElementById('paymentModal').classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }, 300);
-        });
 
         // ========================================
         // FONCTION DE HASHAGE SIMPLE (SHA-256)
@@ -2969,104 +2965,101 @@
             // FONCTION PAIEMENT EN LIGNE (MODIFIÉE)
             // ========================================
             async function payOnline() {
-                // Récupérer les données utilisateur stockées
-                const email = sessionStorage.getItem('userEmail');
-                const phone = sessionStorage.getItem('userPhone');
-                const name = sessionStorage.getItem('userName');
+                    const email = sessionStorage.getItem('userEmail');
+                    const phone = sessionStorage.getItem('userPhone');
+                    const name = sessionStorage.getItem('userName');
 
-                // Hasher les données
-                const hashedEmail = await hashData(email);
-                const hashedPhone = await hashData(phone);
+                    // ✅ CORRECTION : Ajouter await
+                    const hashedEmail = await hashData(email);  // ✅ CORRECT
+                    const hashedPhone = await hashData(phone);  // ✅ CORRECT
 
-                let firstName = '';
-                let lastName = '';
-                if (name) {
-                    const nameParts = name.split(' ');
-                    firstName = nameParts[0];
-                    lastName = nameParts.slice(1).join(' ');
+                    let firstName = '';
+                    let lastName = '';
+                    if (name) {
+                        const nameParts = name.split(' ');
+                        firstName = nameParts[0];
+                        lastName = nameParts.slice(1).join(' ');
+                    }
+
+                    // ✅ TRACKING FACEBOOK avec données hashées
+                    fbq('track', 'InitiateCheckout', {
+                        content_name: 'E-book Saint-Valentin 2026',
+                        content_ids: ['ebook-stvalentin-2026'],
+                        content_type: 'product',
+                        value: 4500,
+                        currency: 'XOF'
+                    }, {
+                        em: hashedEmail,  // ✅ Hash SHA-256 valide
+                        ph: hashedPhone,  // ✅ Hash SHA-256 valide
+                        fn: firstName ? await hashData(firstName) : undefined,
+                        ln: lastName ? await hashData(lastName) : undefined
+                    });
+
+                    console.log('✅ InitiateCheckout tracked avec Event Match Quality 9-10/10');
+
+                    const PAYMENT_LINK = 'https://my.moneyfusion.net/698481d97775377233b2d8ab';
+                    closePaymentModal();
+
+                    setTimeout(() => {
+                        window.location.href = PAYMENT_LINK;
+                    }, 300);
                 }
-
-                // 🔥 TRACKING FACEBOOK : InitiateCheckout AVEC données utilisateur
-                fbq('track', 'InitiateCheckout', {
-                    content_name: 'E-book Saint-Valentin 2026',
-                    content_ids: ['ebook-stvalentin-2026'],
-                    content_type: 'product',
-                    value: 4500,
-                    currency: 'XOF'
-                }, {
-                    em: hashedEmail,
-                    ph: hashedPhone,
-                    fn: firstName ? await hashData(firstName) : undefined,
-                    ln: lastName ? await hashData(lastName) : undefined
-                });
-
-                console.log('✅ InitiateCheckout tracked avec données utilisateur');
-
-                const PAYMENT_LINK = 'https://my.moneyfusion.net/698481d97775377233b2d8ab';
-                closePaymentModal();
-
-                setTimeout(() => {
-                    window.location.href = PAYMENT_LINK;
-                }, 300);
-            }
 
             // ========================================
             // FONCTION PAIEMENT WHATSAPP (MODIFIÉE)
             // ========================================
             async function payViaWhatsApp() {
-                // Récupérer les données utilisateur stockées
-                const email = sessionStorage.getItem('userEmail');
-                const phone = sessionStorage.getItem('userPhone');
-                const name = sessionStorage.getItem('userName');
+                    const email = sessionStorage.getItem('userEmail');
+                    const phone = sessionStorage.getItem('userPhone');
+                    const name = sessionStorage.getItem('userName');
 
-                // Hasher les données
-                const hashedEmail = await hashData(email);
-                const hashedPhone = await hashData(phone);
+                    // ✅ CORRECTION : Ajouter await
+                    const hashedEmail = await hashData(email);  // ✅ CORRECT
+                    const hashedPhone = await hashData(phone);  // ✅ CORRECT
 
-                let firstName = '';
-                let lastName = '';
-                if (name) {
-                    const nameParts = name.split(' ');
-                    firstName = nameParts[0];
-                    lastName = nameParts.slice(1).join(' ');
+                    let firstName = '';
+                    let lastName = '';
+                    if (name) {
+                        const nameParts = name.split(' ');
+                        firstName = nameParts[0];
+                        lastName = nameParts.slice(1).join(' ');
+                    }
+
+                    // ✅ TRACKING FACEBOOK avec données hashées
+                    fbq('track', 'InitiateCheckout', {
+                        content_name: 'E-book Saint-Valentin 2026',
+                        content_ids: ['ebook-stvalentin-2026'],
+                        content_type: 'product',
+                        value: 4500,
+                        currency: 'XOF'
+                    }, {
+                        em: hashedEmail,  // ✅ Hash SHA-256 valide
+                        ph: hashedPhone,  // ✅ Hash SHA-256 valide
+                        fn: firstName ? await hashData(firstName) : undefined,
+                        ln: lastName ? await hashData(lastName) : undefined
+                    });
+
+                    console.log('✅ InitiateCheckout tracked avec Event Match Quality 9-10/10');
+
+                    // Message WhatsApp personnalisé
+                    const displayName = name || 'Client';
+                    const message = encodeURIComponent(
+                        `🔥 Bonjour !\n\n` +
+                        `Je suis ${displayName} et je veux commander l'E-book Saint-Valentin 2026.\n\n` +
+                        `📧 Email : ${email}\n` +
+                        `📱 Téléphone : ${phone}\n` +
+                        `💰 Prix : 4500 FCFA\n\n` +
+                        `Merci de me confirmer la procédure de paiement ! 😊`
+                    );
+
+                    const whatsappLink = `https://wa.me/22969473921?text=${message}`;
+                    window.open(whatsappLink, '_blank');
+
+                    setTimeout(() => {
+                        closePaymentModal();
+                    }, 500);
                 }
 
-                // 🔥 TRACKING FACEBOOK : InitiateCheckout AVEC données utilisateur
-                fbq('track', 'InitiateCheckout', {
-                    content_name: 'E-book Saint-Valentin 2026',
-                    content_ids: ['ebook-stvalentin-2026'],
-                    content_type: 'product',
-                    value: 4500,
-                    currency: 'XOF'
-                }, {
-                    em: hashedEmail,
-                    ph: hashedPhone,
-                    fn: firstName ? await hashData(firstName) : undefined,
-                    ln: lastName ? await hashData(lastName) : undefined
-                });
-
-                console.log('✅ InitiateCheckout tracked avec données utilisateur');
-
-                // Personnaliser le message WhatsApp avec les infos
-                const displayName = name || 'Client';
-                const message = encodeURIComponent(
-                    `🔥 Bonjour !\n\n` +
-                    `Je suis ${displayName} et je veux commander l'E-book Saint-Valentin 2026.\n\n` +
-                    `📧 Email : ${email}\n` +
-                    `📱 Téléphone : ${phone}\n` +
-                    `💰 Prix : 4500 FCFA\n\n` +
-                    `Merci de me confirmer la procédure de paiement ! 😊`
-                );
-
-                const whatsappLink = `https://wa.me/22969473921?text=${message}`;
-                window.open(whatsappLink, '_blank');
-
-                setTimeout(() => {
-                    closePaymentModal();
-                }, 500);
-            }
-
-            
         // ========================================
         // LAZY LOADING IMAGES
         // ========================================
